@@ -47,33 +47,11 @@ If any check is inconclusive, say the deploy is blocked or unverified. Do not al
    - Blocked: provider status failed/unknown/stuck, preflight failed, account/permission is missing, or live target still serves old content.
    - Include exact next action, not generic advice.
 
-7. Update handoff only after deploy work if the user asks for handoff or the session state is important to preserve.
+7. Update handoff after deploy work only when the user requests it or has already authorized a checkpoint. A useful resume note does not itself authorize commit/push.
    - Use the handoff skill separately.
    - Record deployed URLs, provider status, verification commands, and blocked state.
 
-## Vercel Guardrails
-
-Use these checks for Vercel projects:
-
-- Prefer the authenticated `vercel` MCP for read-only team/project/deployment/domain/log inspection and current provider documentation. Use the repository's Vercel CLI path for local builds and approved deployments; confirm the exact team/project before either route.
-- Run project-local validation first.
-- Use explicit scope/team when known: `--scope <team-or-account>`.
-- Prefer project-local build commands or `vercel build --prod --scope <scope>` before `vercel deploy --prebuilt --prod --scope <scope>` when prior handoff/docs recommend prebuilt deployment.
-- Inspect the returned deployment:
-
-```bash
-vercel inspect <deployment-url> --scope <scope>
-vercel list <project> --prod --scope <scope>
-```
-
-- A Vercel deployment with `status UNKNOWN` is not successfully deployed. Do not alias it to the production domain.
-- Verify the custom domain, not only the generated deployment URL:
-
-```bash
-curl -fsS https://example.com/path
-```
-
-- For public JSON/config deploys, compare the live response to local expected values and headers. If a project has a script like `check-mobile-config-live`, use it.
+For Vercel projects, read [Vercel projects](references/vercel.md) when the target requires those checks.
 
 ## Mobile Device Installs
 

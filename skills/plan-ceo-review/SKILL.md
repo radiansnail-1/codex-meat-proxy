@@ -1,7 +1,8 @@
 ---
 name: plan-ceo-review
-version: 2.0.0
 description: "CEO/founder-mode plan review focused on strategy, scope, and ambition — rethink the problem, find the 10-star product, challenge premises, expand or strip scope. Four modes: SCOPE EXPANSION (dream big), SELECTIVE EXPANSION (hold scope + cherry-pick), HOLD SCOPE (maximum rigor), SCOPE REDUCTION (strip to essentials). Use when asked to 'think bigger', 'expand scope', 'strategy review', 'rethink this', or 'is this ambitious enough', or when the user is questioning a plan's scope or ambition. For architecture, data flow, edge cases, test coverage, and execution detail, use plan-eng-review instead."
+metadata:
+  version: "2.0.0"
 ---
 
 # CEO Plan Review
@@ -34,23 +35,13 @@ Choose the mode from the user's wording. If unclear, default to **Hold Scope**.
 - Make tradeoffs explicit: speed, reversibility, user value, operational burden,
   learning value, and maintenance cost.
 
-## Base Branch
+## Repository reviews
 
-Determine which branch this PR targets. Use the result as "the base branch" in
-all subsequent steps.
-
-1. Check if a PR already exists: `gh pr view --json baseRefName -q .baseRefName`.
-   If it succeeds, use the printed name.
-2. If no PR exists, detect the default branch:
-   `gh repo view --json defaultBranchRef -q .defaultBranchRef.name`.
-3. If both fail, fall back to `main`.
-
-Print the detected base branch. Substitute it wherever later commands say "the
-base branch."
+Only discover the base branch when the review concerns a PR or repository diff. Resolve the existing PR base or configured upstream/default branch from actual Git/GitHub evidence. If unresolved and material, report the gap or ask; do not invent `main`. Skip Git discovery for standalone strategy documents.
 
 ## Reference Pack
 
-Read `references/cognitive-patterns.md` before Step 0. Use:
+Use these references only when a deeper strategic review needs them; a simple scope question does not require the full pack. `references/cognitive-patterns.md` supplies optional lenses. Use:
 
 - `references/step0.md` for the system audit, premise challenge, alternatives,
   mode selection, and temporal interrogation.

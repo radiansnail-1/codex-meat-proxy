@@ -1,10 +1,10 @@
 ---
 name: app-store-connect-operations
 description: "App Store Connect build, metadata, pricing, screenshot, review, TestFlight, and release operations. Use when inspecting or changing iOS app versions, builds, localizations, in-app purchases, subscriptions, or release state."
-version: 1.0.0
-author: Brian Tan + Codex
 license: private
 metadata:
+  author: "Codex Meat Proxy"
+  version: "1.0.0"
   tags: [app-store-connect, ios, testflight, release, metadata, screenshots]
   related_skills: [deploy, qa, ios-debugger-agent, revenuecat-operations, mobile-app-attribution-operations]
 ---
@@ -33,7 +33,7 @@ Before any read that drives a decisionâ€”and immediately before every mutationâ€
 4. environment and territory/storefront when relevant;
 5. intended action: local build, upload, attach, submit, release, schedule, metadata-only, pricing, or product change.
 
-`140.6` and `Prayer First` are separate apps. Never carry an app ID, build, localization, or product from one into the other.
+Separate apps must remain strictly isolated. Never carry an app ID, build, localization, or product from one into the other.
 
 ## State model
 
@@ -77,7 +77,7 @@ Read the current entity first and send only intended fields. For replacement-sty
 
 ### 4. Approval gates
 
-These are separate approvals unless Brian's request explicitly includes them:
+These are separate approvals unless the user's request explicitly includes them:
 
 - local code/version fix;
 - build/archive;

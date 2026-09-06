@@ -2,7 +2,7 @@
 name: github-yeet
 description: |
   Publish local changes to GitHub on macOS or Windows: inspect scope, commit
-  intentionally, push, and open a draft PR. Includes Brian's Windows GitHub HTTPS
+  intentionally, push, and open a draft PR. Includes Windows GitHub HTTPS
   fallback for Schannel / Git credential-helper failures. Trigger on "yeet".
 ---
 
@@ -17,7 +17,7 @@ push a branch, open a PR, or run a "yeet" flow.
    - `git status -sb`
    - `git diff --stat`
    - relevant diffs for changed files
-2. If the worktree has unrelated changes, ask which files belong in the PR.
+2. Determine task-owned paths from the conversation and diff; preserve unrelated changes. Ask only if ownership remains ambiguous.
    Stage explicit paths unless the whole worktree is confirmed in scope.
 3. Commit with a terse, descriptive message.
 4. Run the most relevant local checks that match the change.
@@ -45,9 +45,9 @@ push a branch, open a PR, or run a "yeet" flow.
 2. If normal GitHub HTTPS push/fetch fails with symptoms like
    `SEC_E_NO_CREDENTIALS`, `AcquireCredentialsHandle failed`, Schannel errors,
    private GitHub commands hanging after auth, or `git push` failing while
-   `gh auth status` is healthy, use Brian's local wrapper instead of retrying:
+   `gh auth status` is healthy, use a local wrapper instead of retrying:
    ```powershell
-   powershell -ExecutionPolicy Bypass -File E:\5.ProjectIdeas\BeforeScroll\git-gh.ps1 push -u origin $(git branch --show-current)
+   powershell -ExecutionPolicy Bypass -File "$WINDOWS_GIT_GH_WRAPPER" push -u origin $(git branch --show-current)
    ```
    The wrapper must derive auth from `gh auth token` at runtime, use OpenSSL,
    disable Git credential helpers for that command, and pass a transient

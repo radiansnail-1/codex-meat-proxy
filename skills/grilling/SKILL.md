@@ -1,6 +1,6 @@
 ---
 name: grilling
-description: "Use when a coding plan, design, specification, or implementation decision should be stress-tested before work begins. Research discoverable facts first, then question unresolved branches one at a time until the user confirms the interview is complete."
+description: "Use when the user asks to be grilled or interviewed about a coding plan, design, specification, or implementation decision. Research discoverable facts first, then ask consequential unresolved questions. Do not impose an interview on ordinary implementation."
 ---
 
 # Grilling
@@ -11,7 +11,7 @@ Adapted for standalone Codex from Matt Pocock's `grilling` skill.
 
 ## Prime directive
 
-Interview the user about blind spots, edge cases, tradeoffs, scope, failure modes, and success criteria. Do not start implementation or turn the interview into a solution pitch until the user explicitly confirms the grilling phase is complete.
+Interview the user about blind spots, edge cases, tradeoffs, scope, failure modes, and success criteria. Keep the requested interview focused on material decisions. Conclude when the user ends it or all material branches are resolved; continue implementation only if the user also requested it. Honor an explicit request to wait for confirmation before implementing.
 
 ## Decision-frontier loop
 
@@ -43,7 +43,7 @@ Interview the user about blind spots, edge cases, tradeoffs, scope, failure mode
 
 ## Exit handoff
 
-When the user confirms the grilling phase is complete, return:
+When the interview concludes, return:
 
 1. settled decisions;
 2. explicit defaults and assumptions;

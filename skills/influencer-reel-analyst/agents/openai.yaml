@@ -1,4 +1,0 @@
-interface:
-  display_name: "Influencer Reel Analyst"
-  short_description: "Analyze short-form reels, insights, and iteration loops."
-  default_prompt: "Analyze this reel and its insights, log the result, and propose the next test."

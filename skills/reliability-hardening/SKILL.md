@@ -1,10 +1,10 @@
 ---
 name: reliability-hardening
 description: "Harden existing code and integrations for deterministic failure handling, concurrency, durability, idempotency, and adversarial input."
-version: 1.0.0
-author: Brian Tan + Codex
 license: private
 metadata:
+  author: "Codex Meat Proxy"
+  version: "1.0.0"
   tags: [reliability, hardening, concurrency, durability, idempotency, security]
   related_skills: [investigate, code-audit, qa, deploy]
 ---
@@ -33,7 +33,7 @@ Use `code-audit` for read-only review. Use `investigate` when root cause is not 
 3. Build a focused red-capable regression at the failing seam before hardening.
 4. Separate pure transformation, local state, live adapters, and external mutations.
 5. Keep secrets local and never print credential values.
-6. Verify the focused regression, canonical project suite, and one realistic artifact/CLI/runtime path.
+6. Verify the focused regression and required project checks; broaden to the canonical suite and realistic artifact/CLI/runtime paths when the affected boundary warrants them.
 
 ## Workflow
 

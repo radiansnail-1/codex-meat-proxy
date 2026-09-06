@@ -1,4 +1,4 @@
 interface:
   display_name: "Grilling"
   short_description: "Stress-test coding decisions one question at a time"
-  default_prompt: "Use $grilling to inspect context, map coding dependencies, research discoverable facts, ask one decision question at a time, and wait for confirmation before acting."
+  default_prompt: "Use $grilling to inspect context, map coding dependencies, research discoverable facts, ask one decision question at a time, and conclude when material decisions are resolved or the user ends the interview. Implement only when also requested."

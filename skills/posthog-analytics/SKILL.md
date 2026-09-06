@@ -1,17 +1,17 @@
 ---
 name: posthog-analytics
-description: "Product analytics and telemetry debugging for Brian's apps. Use when querying PostHog, validating event instrumentation, reviewing funnels or retention, correlating a release with behavior, or checking whether a code change produced the intended events."
-version: 1.0.0
-author: Brian Tan + Codex
+description: "Product analytics and telemetry debugging for web and mobile apps. Use when querying PostHog, validating event instrumentation, reviewing funnels or retention, correlating a release with behavior, or checking whether a code change produced the intended events."
 license: private
 metadata:
+  author: "Codex Meat Proxy"
+  version: "1.0.0"
   tags: [posthog, analytics, telemetry, funnels, retention, mobile]
   related_skills: [investigate, qa, revenuecat-operations, mobile-app-attribution-operations]
 ---
 
 # PostHog Analytics
 
-Use the configured hosted `posthog` MCP through its CLI-style `exec` tool. This skill keeps the active Codex context small while preserving Brian's product-identity, evidence, instrumentation, and approval rules.
+Use the configured hosted `posthog` MCP through its CLI-style `exec` tool. This skill keeps the active Codex context small while preserving product-identity, evidence, instrumentation, and approval rules.
 
 ## When to use
 
@@ -37,15 +37,17 @@ Every call requires a concise third-person `context` explaining the task. Use re
 
 ## Hard product boundary
 
-`140.6` and `Prayer First` are separate products. Never reuse the active project from a prior turn or infer identity from similar event names.
+Multiple apps and products must remain strictly isolated. Never reuse the active project from a prior turn or infer identity from similar event names.
 
-Before each substantive query:
+At the start of an analysis context:
 
 1. Resolve the product named by the user.
 2. List accessible PostHog projects and select the exact project.
 3. Switch explicitly and confirm the active project name/id.
 4. State the exact date window and project timezone.
 5. Read the live event schema after switching.
+
+Reuse verified identity and schema within a stable context, using explicit project IDs on calls where supported. Revalidate after a context switch, schema-dependent error, suspected drift, or before a write. If tools rely on shared mutable active-project state, confirm that state before dependent queries; do not assume another operation left it unchanged. Re-list all projects only when needed to resolve identity or access.
 
 If project identity or taxonomy does not match the requested product, stop rather than combining data.
 

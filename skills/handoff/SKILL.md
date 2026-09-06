@@ -15,12 +15,14 @@ Run the full workflow when the user explicitly asks to save/checkpoint now, when
 
 ## Authorization
 
-Invoking this skill authorizes:
+An explicit `$handoff` or full checkpoint/publish request authorizes:
 
 - updating the three canonical handoff files;
 - committing the clearly scoped current work and handoff files;
 - performing a repository-required incremental Graphify refresh;
 - pushing the checkpoint branch.
+
+A request only for a resume note or summary calls for the requested note, without committing or pushing. Automatic skill selection does not expand authority. For note-only work, stop after producing the note; the full canonical-file and publication workflow below applies to checkpoints.
 
 It does not authorize a PR, merge, deployment, release, upload, or live-service mutation. An explicit request such as “local only” or “do not push” narrows the workflow.
 

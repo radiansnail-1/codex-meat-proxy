@@ -21,7 +21,7 @@ Before mutation:
 
 1. Read applicable repository instructions.
 2. Load `handoff` and use its compact canonical-file, evidence, commit, Graphify, and push contract.
-3. Load `github-yeet` for GitHub publication mechanics.
+3. Load `github-yeet` only for GitHub publication mechanics. In this handoff flow, reuse existing local verification evidence and use required CI as the merge gate; this overrides its instruction to run fresh local checks.
 4. If the repository tracks Graphify, read [references/graphify-publication.md](references/graphify-publication.md).
 5. If a wiki update may be relevant, load `wiki` and follow its vault routing, synchronization, privacy, indexing, leak-scan, and repository-instruction contracts.
 

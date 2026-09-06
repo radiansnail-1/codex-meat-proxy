@@ -31,7 +31,7 @@ Compact Codex adapter for Graphify-Labs/graphify v0.9.53. Graphify is an evidenc
 - Run `graphify --version` before a full build. This adapter targets 0.9.53; if the executable and `.graphify_version` disagree, stop and reconcile them before following the full workflow.
 - Do not install or upgrade packages silently. If Graphify is absent or stale, state the required `uv tool` action and obtain approval unless the user already asked for the upgrade.
 - A code-only corpus uses deterministic AST extraction and needs no model or API key.
-- For docs, papers, or images, use Codex subagents with `gpt-5.6-luna`, `xhigh`, and `fork_turns="none"`. Never inspect, request, print, or reuse provider API keys.
+- For docs, papers, or images, use isolated Codex subagents with `fork_turns="none"` when supported; inherit model/effort unless the user specifies another available route. Never inspect, request, print, or reuse provider API keys.
 - Review `.graphifyignore` and sensitive-file exclusions before broad scans. Report sensitive skips by count, not filename, unless the user explicitly asks to troubleshoot them.
 - Do not upload a corpus or switch to the hosted Graphify service without explicit approval.
 - Preserve the prior graph on partial extraction failure; never force past a shrink guard without evidence that source deletion was intentional.
