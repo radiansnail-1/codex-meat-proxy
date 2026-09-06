@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reliability Hardening"
+  short_description: "Harden code and integrations against real failures"
+  default_prompt: "Use $reliability-hardening after root cause is proven to add a red-capable regression and implement bounded, durable, idempotent failure handling."

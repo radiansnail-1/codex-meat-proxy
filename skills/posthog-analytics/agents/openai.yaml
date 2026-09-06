@@ -1,0 +1,4 @@
+interface:
+  display_name: "PostHog Analytics"
+  short_description: "Query product data and verify telemetry"
+  default_prompt: "Use $posthog-analytics to inspect this product's PostHog data, reconcile event semantics with source, and report evidence without mixing projects."

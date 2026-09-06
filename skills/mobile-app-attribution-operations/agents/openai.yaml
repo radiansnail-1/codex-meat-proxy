@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mobile Attribution Operations"
+  short_description: "Implement and verify mobile acquisition attribution"
+  default_prompt: "Use $mobile-app-attribution-operations to audit or implement the mobile attribution stack and prove the current build's install, event, and revenue-postback chain end to end."

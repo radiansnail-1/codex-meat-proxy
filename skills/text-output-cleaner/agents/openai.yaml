@@ -1,0 +1,4 @@
+interface:
+  display_name: "Text Output Cleaner"
+  short_description: "Safely clean text, Markdown, CSV, and TSV output"
+  default_prompt: "Use $text-output-cleaner to remove hidden formatting without corrupting emoji or delimited data."

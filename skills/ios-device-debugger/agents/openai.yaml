@@ -1,0 +1,4 @@
+interface:
+  display_name: "iOS Device Debugger"
+  short_description: "Debug and verify apps on physical iOS devices"
+  default_prompt: "Use $ios-device-debugger to build, install, run, and verify this app on the exact attached iOS device without exposing sensitive identifiers."

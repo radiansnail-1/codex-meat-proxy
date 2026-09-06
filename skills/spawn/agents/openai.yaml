@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spawn"
+  short_description: "Delegate work to Codex subagents"
+  default_prompt: "Use $spawn to research, implement, and verify this through focused Codex subagents."

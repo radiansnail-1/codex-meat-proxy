@@ -1,0 +1,4 @@
+interface:
+  display_name: "CEO Plan Review"
+  short_description: "Challenge product strategy, scope, and ambition"
+  default_prompt: "Use $plan-ceo-review to challenge the premise, scope, ambition, reversibility, and product outcome before implementation while preserving the user's chosen scope."

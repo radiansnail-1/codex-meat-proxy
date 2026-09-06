@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handoff"
+  short_description: "Commit and push a compact resume checkpoint"
+  default_prompt: "Use $handoff to compact the canonical resume files, update required Graphify state, and commit and push the scoped checkpoint without rerunning product verification."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Graphify"
+  short_description: "Query or maintain codebase knowledge graphs"
+  default_prompt: "Use $graphify to query or maintain the intended Graphify graph, verify graph revision identity, and inspect cited source before making correctness claims."

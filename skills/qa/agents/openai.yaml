@@ -1,0 +1,4 @@
+interface:
+  display_name: "QA"
+  short_description: "Surface and light code QA for apps"
+  default_prompt: "Use $qa to test this app, capture evidence, classify issues, route code QA, and verify fixes."

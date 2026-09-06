@@ -1,0 +1,4 @@
+interface:
+  display_name: "Investigate"
+  short_description: "Find root causes before implementing fixes"
+  default_prompt: "Use $investigate to lock source and runtime identity, reproduce the exact failure, prove a testable root cause, implement the smallest verified fix, and report evidence."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Engineering Plan Review"
+  short_description: "Stress-test architecture, risks, and test coverage"
+  default_prompt: "Use $plan-eng-review to inspect the canonical codebase and stress-test architecture, data flow, failure modes, test coverage, rollout, and operational risk before implementation."

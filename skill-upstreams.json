@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "audited_at": "2026-08-31T12:55:19+08:00",
+  "policy": "Review upstream changes manually. Preserve Brian-specific Codex routing, verification, privacy, and approval rules; never overwrite adapted skills wholesale.",
+  "skills": {
+    "grilling": {
+      "relationship": "adapted",
+      "source": "https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling",
+      "source_commit": "6654f6b60cd9d5be8b54c6fafe44346dabeb3b76",
+      "source_file_last_changed": "85f83d3fde1d3a90d5c9a657f6998c79a6c37308",
+      "license": "MIT",
+      "last_checked": "2026-08-31",
+      "local_notes": "Updated with upstream's decision-tree/frontier and facts-versus-decisions model while preserving Brian's one-question-at-a-time default, explicit batching opt-in, and no-implementation gate."
+    },
+    "graphify": {
+      "relationship": "packaged-upstream-with-local-wrapper",
+      "source": "https://github.com/Graphify-Labs/graphify",
+      "source_commit": "33362d969292b57eda82f3fbd9eb5f3f5bc9bbc2",
+      "source_version": "0.9.53",
+      "license": "Apache-2.0 OR MIT",
+      "last_checked": "2026-08-31",
+      "local_notes": "The CLI and packaged references are current. SKILL.md is a compact Codex wrapper; full build instructions live in references/full-workflow.md. Preserve Luna-only semantic extraction, no provider-key access, sensitive-skip privacy, source verification, and explicit hosted-upload approval."
+    },
+    "ponytail": {
+      "relationship": "plugin-managed-upstream",
+      "source": "https://github.com/DietrichGebert/ponytail",
+      "source_commit": "2ed6c52c9d7e5e56942508591085fd45dea277d3",
+      "source_version": "4.9.0",
+      "license": "MIT",
+      "last_checked": "2026-08-31",
+      "local_notes": "Installed plugin is on the current upstream main commit and latest release. Do not copy its six bundled skills into the personal layer."
+    },
+    "investigate": {
+      "relationship": "adapted-from-gstack",
+      "source": "https://github.com/garrytan/gstack/tree/main/investigate",
+      "source_commit": "253d1dfe2694e49d60ba083423446b8363e113eb",
+      "source_version": "1.76.0.0",
+      "license": "MIT",
+      "last_checked": "2026-08-31",
+      "local_notes": "Compact standalone Codex workflow. Added portable scope locking and sanitized local-history refresh; skipped gstack ASK, browser, preamble, telemetry, and state-file machinery."
+    },
+    "plan-ceo-review": {
+      "relationship": "adapted-from-gstack",
+      "source": "https://github.com/garrytan/gstack/tree/main/plan-ceo-review",
+      "source_commit": "253d1dfe2694e49d60ba083423446b8363e113eb",
+      "source_version": "1.76.0.0",
+      "license": "MIT",
+      "last_checked": "2026-08-31",
+      "local_notes": "Brian-specific compact review skill with progressive references and no default artifact creation. Added multi-document source selection, equal treatment of minimal and ideal approaches, and removed stale ETHOS/WebSearch/AskUserQuestion assumptions."
+    },
+    "plan-eng-review": {
+      "relationship": "adapted-from-gstack",
+      "source": "https://github.com/garrytan/gstack/tree/main/plan-eng-review",
+      "source_commit": "253d1dfe2694e49d60ba083423446b8363e113eb",
+      "source_version": "1.76.0.0",
+      "license": "MIT",
+      "last_checked": "2026-08-31",
+      "local_notes": "Brian-specific compact review skill. Added target, evidence/confidence, distribution, shared-root-cause, and implementation-task gates while rejecting gstack runtime, telemetry, and artifact machinery."
+    },
+    "design": {
+      "relationship": "local-synthesis",
+      "source": null,
+      "source_commit": null,
+      "license": "private",
+      "last_checked": "2026-08-31",
+      "local_notes": "Absorbed prior OpenDesign-inspired and premium-design overlays. There is no single authoritative upstream to synchronize."
+    },
+    "handoff": {
+      "relationship": "local-skill-name-collision",
+      "source": null,
+      "source_commit": null,
+      "license": "private",
+      "last_checked": "2026-08-31",
+      "local_notes": "Not the Matt Pocock handoff skill despite the same name. Never replace it from that repository by name alone."
+    }
+  }
+}

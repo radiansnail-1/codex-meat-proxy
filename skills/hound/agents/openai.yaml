@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hound"
+  short_description: "Iterate toward measured or reference-backed wins"
+  default_prompt: "Use $hound to define an inspectable bar, run bounded improvement experiments, and keep only verified wins."

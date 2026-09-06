@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design QA"
+  short_description: "Independent visual QA and responsive polish"
+  default_prompt: "Use $design-qa to independently verify this interface and fix the highest-impact visual issues."

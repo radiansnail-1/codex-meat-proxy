@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design"
+  short_description: "Explore, build, and audit product experience"
+  default_prompt: "Use $design to explore, implement, or audit this product interface, including premium-experience craft."

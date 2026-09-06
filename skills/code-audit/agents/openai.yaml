@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Audit"
+  short_description: "Audit correctness without changing implementation"
+  default_prompt: "Use $code-audit to pin the exact revision and evidence surfaces, audit correctness read-only, and return severity-ranked findings with verified tests and gaps."

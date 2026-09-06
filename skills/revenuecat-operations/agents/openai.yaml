@@ -1,0 +1,4 @@
+interface:
+  display_name: "RevenueCat Operations"
+  short_description: "Inspect subscription config and purchase truth"
+  default_prompt: "Use $revenuecat-operations to inspect this app's RevenueCat project, configuration graph, customer state, and provider evidence before changing anything."

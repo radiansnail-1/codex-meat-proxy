@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brian Wiki"
+  short_description: "Route and maintain four Obsidian vaults"
+  default_prompt: "Use $wiki to query, ingest, update, or lint the correctly scoped personal, Sandbox, RMS, or All Square vault."

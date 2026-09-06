@@ -1,0 +1,4 @@
+interface:
+  display_name: "iOS Debugger Agent"
+  short_description: "Debug current iOS builds on Simulator"
+  default_prompt: "Use $ios-debugger-agent to bind the task to the exact checkout, scheme, build, and simulator, then reproduce and verify the iOS runtime behavior with XcodeBuildMCP."

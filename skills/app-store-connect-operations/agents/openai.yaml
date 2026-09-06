@@ -1,0 +1,4 @@
+interface:
+  display_name: "App Store Connect Operations"
+  short_description: "Operate iOS builds, metadata, and releases safely"
+  default_prompt: "Use $app-store-connect-operations to inspect the exact app/version/build, separate upload, submission, and release gates, and verify App Store Connect read-back state."

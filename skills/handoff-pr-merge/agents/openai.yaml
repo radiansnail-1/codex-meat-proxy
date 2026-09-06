@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handoff PR Merge"
+  short_description: "Checkpoint, PR, required CI, and merge"
+  default_prompt: "Use $handoff-pr-merge to publish the compact scoped checkpoint, wait for required CI, merge it, and verify the remote target without rerunning product verification."

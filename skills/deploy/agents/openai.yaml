@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deploy"
+  short_description: "Deploy with live verification guardrails"
+  default_prompt: "Use $deploy to deploy this project and verify the live target before calling it complete."
