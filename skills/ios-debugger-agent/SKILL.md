@@ -9,6 +9,8 @@ metadata:
 
 # iOS Debugger Agent
 
+This skill is the canonical simulator workflow; prefer it over bundled vendor duplicates when both are available. Use the current tool schemas rather than hardcoded namespaces.
+
 Use the pinned `xcodebuildmcp` connector for simulator discovery, build/run, UI inspection, screenshots, and logs. This is a simulator-debugging skill, not App Store release authorization.
 
 ## When to use

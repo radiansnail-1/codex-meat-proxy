@@ -45,7 +45,7 @@ Then:
 
 1. Inspect current files, repository state, docs, routes, tests, benchmarks, and existing evidence.
 2. Run the narrowest real path before changing anything. Capture baseline screenshots, timings, tests, samples, draft, score, or other durable evidence.
-3. Read the benchmark file named by the user; otherwise create `hound-benchmark.md` in the target project root (or the dedicated work area when appropriate), using `references/benchmark-template.md`.
+3. Read the benchmark/run file named by the user or reuse an existing suitable project worksheet; otherwise create `hound-benchmark.md` in the target project root (or dedicated work area), using `references/benchmark-template.md`. Keep one authoritative run record.
 4. Confirm the inspection path works and record noise/variance, known limitations, candidate queue, current round, and next action.
 5. Decompose only where slices are independently judgeable. Shared rendering, state, schemas, timing, APIs, or design language usually require sequential ownership.
 
@@ -72,7 +72,7 @@ Prefer small, reversible experiments. For vague code optimization, start with sa
 
 Select a concrete reference artifact, implementation, golden output, reproducible suite, measurable target, or weighted rubric. The reference is a judgment bar, not permission to imitate protected code, art, text, branding, or private data.
 
-Create or update a small `hound-run.md`, `workbench.md`, or project worksheet containing goal, bar/provenance, baseline evidence, invariants, exclusions, workstreams, round, owner, stop rule, and next action.
+Use the same benchmark/run record established at startup, extending it with reference provenance, workstreams, owner, and critic results as needed. If the project already has a suitable worksheet, use it instead of creating overlapping benchmark and run documents.
 
 The lead agent should choose the smallest judgeable slices. Use parallel builders only when ownership is disjoint, each slice has a local bar and inspection path, changes cannot invalidate one another, and integration preserves evidence. Otherwise use one sequential owner.
 
@@ -134,7 +134,7 @@ Stop when:
 - improvements flatten relative to cost;
 - the next action requires product judgment, credentials, paid resources, production-only data, destructive changes, or broader scope;
 - a regression or safety boundary cannot be fixed without widening scope;
-- Brian asks to stop.
+- the user asks to stop.
 
 Never claim completion while required critics, tests, or live verification are pending. Partial or blocked results are preferable to invented confidence.
 

@@ -1,35 +1,18 @@
 ---
 name: trim
-description: Audit your entire agent setup — the instructions file (CLAUDE.md or AGENTS.md), all skills, all context files — and produce a list of everything to cut with reasons, any conflicts between files, and a cleaned-up instructions file. Run this whenever outputs start feeling worse or your setup feels bloated.
+description: Audit agent instructions and personal skills for conflicts, unnecessary overhead, overlapping triggers, and stale tool assumptions. Recommend concrete cuts and validate requested revisions. Use when asked to audit or simplify the agent setup.
 ---
 
-Read the active instruction files before producing recommendations:
-- The harness instructions file: `~/.claude/CLAUDE.md` (Claude Code) or `$CODEX_HOME/AGENTS.md` (Codex)
-- Every `SKILL.md` under the corresponding `skills/` directory (skip `node_modules/`)
-- Plugin skill manifests exposed in the current session
-- Other user-authored context files under the harness home (`~/.claude` or `$CODEX_HOME`), excluding caches, `node_modules/`, generated runtime folders, and plugin/vendor internals unless the user explicitly asks
+# Trim
 
-Then go through every rule, instruction, and preference you found. For each one, evaluate:
+Start with active harness instructions and personal skill entrypoints plus their invocation metadata. Inventory vendor/plugin descriptions separately; inspect overlapping vendor entrypoints only when relevant. Exclude backups, archives, caches, generated runtime state, secrets, and unrelated personal content from broad scans.
 
-1. **Default?** Is this something you already do without being told?
-2. **Conflict?** Does this contradict or tension with another rule elsewhere?
-3. **Duplicate?** Is this already covered by a different rule or file?
-4. **Patch?** Does this read like it was added to fix one specific bad output rather than improve outputs generally?
-5. **Vague?** Is this so non-specific you'd interpret it differently every time? (e.g. "be more natural", "use a good tone")
+For each substantive rule, assess whether it contributes non-obvious knowledge, duplicates a default, conflicts with another instruction, overgeneralizes a past incident, or triggers unrelated work. Inspect supporting references when needed to verify a finding or prevent an old rule from being reintroduced through a link.
 
-Then output three things:
+Preserve operational invariants, user-selected conventions, authorization boundaries, and evidence standards. Prefer clear outcomes and decision criteria over mandatory interviews, numeric thresholds without evidence, and rigid reporting. Keep normal skill discovery enabled unless the user asks to change invocation policy.
 
-**1. Cut list** — everything you'd remove, one-line reason each
+Report ranked findings with exact source evidence and replacement direction, a per-skill cut/move/preserve list, and a cleaned global instructions proposal when useful. If the active global file is empty, leave it empty rather than adding defaults. Distinguish structural defects from behavioral hypotheses.
 
-**2. Conflicts** — any rules fighting each other across files, with both sides quoted
+An audit alone does not authorize installing revisions. An explicit request to revise or apply the recommendations authorizes scoped edits and deletion of flagged rules; do not ask again. Preserve a recoverable original, update affected references/metadata consistently, and leave vendor caches alone unless specifically requested.
 
-**3. Cleaned instructions file** — rewrite of the active `CLAUDE.md`/`AGENTS.md` with dead weight removed, conflicts resolved, and nothing that's already default behaviour
-
----
-
-After getting results, the process:
-1. Read what was flagged and why
-2. Delete flagged rules only after user approval
-3. Run your 3 most common tasks
-4. Output same or better → the deleted rules were dead weight
-5. Something specific broke → add back just that one rule
+Run the installed skill validator and check linked local resources for changed skills. For substantial behavioral changes, evaluate realistic tasks and side effects when feasible; structural validation alone does not prove better behavior. Record what was actually tested and compare outcomes before claiming quality, speed, or token improvements.

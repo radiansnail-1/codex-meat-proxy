@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "audited_at": "2026-08-31T12:55:19+08:00",
-  "policy": "Review upstream changes manually. Preserve Brian-specific Codex routing, verification, privacy, and approval rules; never overwrite adapted skills wholesale.",
+  "policy": "Review upstream changes manually. Preserve project-specific Codex routing, verification, privacy, and approval rules; never overwrite adapted skills wholesale.",
   "skills": {
     "grilling": {
       "relationship": "adapted",
@@ -10,7 +10,7 @@
       "source_file_last_changed": "85f83d3fde1d3a90d5c9a657f6998c79a6c37308",
       "license": "MIT",
       "last_checked": "2026-08-31",
-      "local_notes": "Updated with upstream's decision-tree/frontier and facts-versus-decisions model while preserving Brian's one-question-at-a-time default, explicit batching opt-in, and no-implementation gate."
+      "local_notes": "Updated with upstream's decision-tree/frontier and facts-versus-decisions model while preserving the one-question-at-a-time default, explicit batching opt-in, and no-implementation gate."
     },
     "graphify": {
       "relationship": "packaged-upstream-with-local-wrapper",
@@ -46,7 +46,7 @@
       "source_version": "1.76.0.0",
       "license": "MIT",
       "last_checked": "2026-08-31",
-      "local_notes": "Brian-specific compact review skill with progressive references and no default artifact creation. Added multi-document source selection, equal treatment of minimal and ideal approaches, and removed stale ETHOS/WebSearch/AskUserQuestion assumptions."
+      "local_notes": "Compact standalone review skill with progressive references and no default artifact creation. Added multi-document source selection, equal treatment of minimal and ideal approaches, and removed stale ETHOS/WebSearch/AskUserQuestion assumptions."
     },
     "plan-eng-review": {
       "relationship": "adapted-from-gstack",
@@ -55,7 +55,7 @@
       "source_version": "1.76.0.0",
       "license": "MIT",
       "last_checked": "2026-08-31",
-      "local_notes": "Brian-specific compact review skill. Added target, evidence/confidence, distribution, shared-root-cause, and implementation-task gates while rejecting gstack runtime, telemetry, and artifact machinery."
+      "local_notes": "Compact standalone review skill. Added target, evidence/confidence, distribution, shared-root-cause, and implementation-task gates while rejecting gstack runtime, telemetry, and artifact machinery."
     },
     "design": {
       "relationship": "local-synthesis",

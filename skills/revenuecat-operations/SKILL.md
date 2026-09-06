@@ -25,13 +25,15 @@ Use for:
 
 ## Identity preflight
 
-`140.6` and `Prayer First` are separate products. Before every operation:
+Multiple apps and projects must remain strictly isolated. At the start of a task or when the target changes:
 
 1. List accessible RevenueCat projects.
 2. Select the exact project and app/store target.
 3. Record whether the target is production, sandbox, or both.
 4. Resolve the app's bundle/package ID and store product identifiers from live data or source.
 5. Distinguish product, package, offering, entitlement, paywall, customer, app user ID, and store transaction identifiers.
+
+Reuse verified target IDs within a stable context and pass them explicitly where supported. Revalidate on context switch, drift, access errors, shared active-project changes, and immediately before a write. Avoid repeating full project enumeration when identity remains explicit and verified.
 
 Do not infer that two apps share a project, offering, or entitlement. If the intended project is not visible, stop and report the access gap.
 
@@ -54,7 +56,7 @@ A PostHog purchase event is not a RevenueCat transaction. A configured RevenueCa
 
 ### 2. Reconstruct the configuration graph
 
-Read, in order:
+Read the links relevant to the question, preserving their dependency order; a focused customer inquiry need not enumerate unrelated paywalls or integrations:
 
 1. apps and store identities;
 2. products and their store identifiers;
@@ -76,7 +78,7 @@ For a named test customer or app user:
 - compare event timestamps with the app session and provider receipt;
 - distinguish stale cache/UI state from server-side entitlement state.
 
-Never grant an entitlement to make a bug disappear unless Brian explicitly requests that exact customer mutation.
+Never grant an entitlement to make a bug disappear unless the user explicitly requests that exact customer mutation.
 
 ### 4. Reconcile purchase failures
 

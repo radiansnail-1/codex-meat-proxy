@@ -1,6 +1,6 @@
 # Graphify full-build workflow — local Codex adaptation
 
-Upstream body: Graphify-Labs/graphify `skill-codex.md` v0.9.53. Local overrides keep semantic extraction on Brian's Codex/Luna route, suppress sensitive-looking filenames, and correct Codex result collection to use in-memory agent results rather than nonexistent chunk files.
+Upstream body: Graphify-Labs/graphify `skill-codex.md` v0.9.53. Local overrides keep semantic extraction on the local agent route, suppress sensitive-looking filenames, and correct result collection to use in-memory agent results rather than nonexistent chunk files.
 
 Load this file only for a first full build or a mixed code/document semantic rebuild. Do not load it for routine queries, `path`, `explain`, or ordinary code-only `update` runs.
 
@@ -155,7 +155,7 @@ Skip this step entirely if `detect` returned zero `video` files. When the corpus
 
 This step has two parts: **structural extraction** (deterministic, free) and **semantic extraction** (LLM, costs tokens).
 
-> **Local Codex routing override:** graphify needs no API key. Never inspect, request, print, or route through `GEMINI_API_KEY`, `GOOGLE_API_KEY`, `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or another provider credential. A code-only corpus uses the deterministic AST path and skips semantic extraction. For docs, papers, or images, semantic extraction always uses Codex subagents with `model="gpt-5.6-luna"`, `reasoning_effort="xhigh"`, and `fork_turns="none"`. If that exact route is unavailable, stop with a routing blocker rather than substituting a provider or model.
+> **Local Codex routing override:** graphify needs no API key. Never inspect, request, print, or route through `GEMINI_API_KEY`, `GOOGLE_API_KEY`, `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or another provider credential. A code-only corpus uses the deterministic AST path and skips semantic extraction. For docs, papers, or images, semantic extraction always uses Codex subagents with isolated context (`fork_turns="none"` when supported), inheriting model and effort unless the user selects another available route. Follow the current native tool schema and concurrency limit. If native delegation is unavailable, report the limitation rather than switching to a credential-backed provider.
 
 **Run Part A (AST) and Part B (semantic) in parallel. Dispatch all semantic subagents AND start AST extraction in the same message. Both can run simultaneously since they operate on different file types. Merge results in Part C as before.**
 
@@ -257,10 +257,10 @@ These are hard workload bounds, not merely timing hints. Do not combine small ch
 > Requires `multi_agent = true` under `[features]` in `~/.codex/config.toml`.
 > If `spawn_agent` is unavailable, tell the user to add that config and restart Codex.
 
-Call `spawn_agent` once per chunk — ALL in the same response so they run in parallel. Use a unique lowercase task name per chunk, pass `fork_turns="none"`, `model="gpt-5.6-luna"`, and `reasoning_effort="xhigh"`, and wrap the extraction prompt in task-delegation framing:
+Use the current native spawn tool for each chunk, scheduling bounded waves within its concurrency limit. Use a unique lowercase task name, isolated context where supported, and inherited model/effort unless explicitly selected otherwise. Adapt this illustrative call to the actual schema:
 
 ```
-spawn_agent(task_name="graphify_semantic_01", fork_turns="none", model="gpt-5.6-luna", reasoning_effort="xhigh", message="Your task is to perform the following. Follow the instructions below exactly.\n\n<agent-instructions>\n[extraction prompt, with FILE_LIST, CHUNK_NUM, TOTAL_CHUNKS, DEEP_MODE substituted]\n</agent-instructions>\n\nExecute this now. Output ONLY the structured JSON response.")
+spawn_agent(task_name="graphify_semantic_01", fork_turns="none", message="Your task is to perform the following. Follow the instructions below exactly.\n\n<agent-instructions>\n[extraction prompt, with FILE_LIST, CHUNK_NUM, TOTAL_CHUNKS, DEEP_MODE substituted]\n</agent-instructions>\n\nExecute this now. Output ONLY the structured JSON response.")
 ```
 
 After all agents are dispatched, collect results sequentially in memory:

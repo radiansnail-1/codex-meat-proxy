@@ -14,7 +14,7 @@ Route work that belongs elsewhere:
 - Source root-cause or non-trivial fixes -> `investigate`. QA may reproduce first and verify after. Only make a tiny local fix when the user explicitly asks QA to do it and the root cause is obvious.
 - Visual polish or design critique/fixes -> `design-qa` when available.
 - Launch, deploy, security, or production preflight -> `deploy` when available.
-- Subagents -> use subagents (Agent tool in Claude Code; `spawn` skill in Codex) only when the user explicitly asks or parallel independent passes are clearly useful.
+- Subagents -> use the current native tool only when delegation is authorized and a concrete independent lane adds value; use `spawn` for explicit delegation requests.
 - Android/iOS platform debugging -> use the relevant platform tooling; for iOS Simulator build/run/log work, use `ios-debugger-agent`.
 - Mobile attribution, ad SDK, SKAN/ATT, or revenue-postback verification -> `mobile-app-attribution-operations`; require a current native build, fresh device/session evidence, and provider receipt rather than initialization logs alone.
 - App Store Connect build processing, metadata, TestFlight, review, or release state -> `app-store-connect-operations`; keep build, upload, submission, and public release as separate gates.
@@ -60,29 +60,9 @@ Do not imply physical iOS QA is possible without macOS, Xcode provisioning, and 
 
 Prioritize blocked user flows, crashes, console-visible failures, broken navigation, failing forms, auth problems, layout overlap, unreadable text, and mobile regressions before cosmetic polish.
 
-## Code QA And Simplification Routing
+## Code quality observations
 
-When QA exposes code-quality issues, inspect only enough source to classify the
-risk and support the finding. Apply a small simplification lens:
-
-1. Does this code need to exist?
-2. Does existing project code already cover it?
-3. Can standard library or native platform behavior cover it?
-4. Can an already-installed dependency cover it?
-5. Can this be a smaller diff with fewer files?
-
-Surface code-quality issues with file paths, symptoms, and likely user impact.
-Do not refactor inside QA unless the user explicitly asks and the fix is tiny,
-obvious, and can be verified through the failing user flow.
-
-Route pure code QA as follows:
-
-- Over-engineering, bloat, duplication, dead flexibility -> the harness code-review skill (`/code-review` in Claude Code; `ponytail:ponytail-review` in Codex); cleanup -> `/simplify` in Claude Code.
-- Correctness, regression, integration, or release-artifact audit without edits -> `code-audit`.
-- Implementation hardening after root cause is proven -> `reliability-hardening`.
-- Root-cause debugging or non-trivial fixes -> `investigate`.
-- Architecture or implementation-plan review -> `plan-eng-review` when available.
-- Measurable optimization loops -> `hound` when available.
+Inspect only enough source to support a concrete user or maintenance impact. Check existing code and native capabilities before proposing new abstractions. Use the role routing above; non-trivial fixes belong to investigate, read-only correctness to code-audit, and over-engineering review to the available simplification skill. Routing is an internal workflow choice, not a reason to stop already-authorized work.
 
 ## Classification
 
