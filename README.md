@@ -28,7 +28,7 @@ Use the included installer to symlink or copy the skills directly into your loca
 ```
 
 ### 3. Validate
-Run the bundled skill validator to ensure all skill frontmatter, schemas, and references conform to the specification:
+Run the bundled validator to check skill metadata and unfinished scaffold placeholders (requires PyYAML). Review changed references and test helpers separately:
 
 ```bash
 python3 scripts/validate.py
@@ -43,6 +43,10 @@ cp .env.example .env
 ```
 
 ---
+
+## Maintaining updates
+
+When improving a skill, reconcile its reusable changes with the public version in the same task. Keep private installation details local, validate the changed skill, and publish a scoped draft PR. See [CONTRIBUTING.md](CONTRIBUTING.md) for the paired-update workflow and [AGENTS.md](AGENTS.md) for coding-agent instructions. Symlinks share files with a checkout; they do not push changes to GitHub automatically.
 
 ## Skills Catalog
 
