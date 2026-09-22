@@ -1,6 +1,23 @@
 # Visual checklist
 
-Use the [Impeccable slop catalog](https://impeccable.style/slop/) as a standing QA lens. Treat a quality defect as a fix; treat an AI-default pattern as a prompt for contextual judgment, not a universal ban. A flagged choice may be valid when it is intentional, fits the product and brand, and is executed consistently. Do not replace one fashionable default with another.
+Source: [Impeccable slop catalog](https://impeccable.style/slop/), checked 2026-09-22. This is a maintained local adaptation, not an automatic feed or a complete copy. The whole-screen prompts below add review guidance beyond the catalog. When asked to refresh the skill or check current patterns, inspect the live source and reconcile relevant changes; do not imply a fresh comparison on ordinary offline reviews.
+
+Treat a quality defect as a fix and a familiar AI-default pattern as a reason to inspect context. An exception needs a concrete reason visible in the product, supplied brief, or design contract; consistency and asserted intent alone are insufficient. Record consequential exceptions without defending every ordinary UI convention. Do not replace one fashionable default with another.
+
+## Whole-screen review
+
+Before checking individual details, inspect how the page or screen works as a composition:
+
+- **Product specificity:** Could the pitch, imagery, and section order serve an unrelated product by changing its name? Identify the interchangeable parts and replace them with actual capabilities, domain content, or relevant evidence. Familiar app navigation and standard controls need no novelty.
+- **Attention and substance:** Does the first view make the purpose and next action clear? Flag oversized presentation, ornamental dashboards, or empty space that pushes useful content away. Inspect the rest of the flow for a polished opening followed by generic or unfinished states.
+- **Cumulative repetition:** Repeated cards, badges, icon tiles, equal-sized blocks, and identical section rhythms can flatten priority even when each component is individually tidy. Name where different content has been forced into the same treatment.
+- **Decoration and expression:** For prominent ornaments, consider whether removing them improves clarity or loses a meaningful brand or emotional cue. Flag decoration that competes with the task. A beige editorial or heavy-border treatment can be just as generic as neon gradients; do not prescribe a replacement fashion.
+- **Copy and credibility:** Read visible copy, including labels, helper text, empty states, and calls to action. Flag interchangeable promises, duplicated explanations, unexplained metrics, and unsupported testimonials or trust marks. Check provenance when available; otherwise mark claims unverified and request real content instead of inventing proof.
+- **Fit to the task:** Check whether people can compare, scan, and act on realistic content. A card collage can obscure a list or comparison; a large settings workflow can outgrow a dialog. Recommend a structural change only when the observed task supports it.
+
+Prioritize the few patterns that dominate the experience over a count of minor tells. Cite the route/state and element or screenshot for each finding, explain the effect, and propose a scoped correction. A detector pass or the absence of familiar motifs is not a visual-quality verdict.
+
+## Detail checks
 
 Check the following during `audit` and `implement-polish` when relevant:
 
@@ -75,6 +92,8 @@ Check the following during `audit` and `implement-polish` when relevant:
 ### Imagery
 
 - Hero illustrations assembled from generic geometric SVG shapes when real illustration, photography, product imagery, or a purposeful graphic is needed.
+- Rough image masks or cut-out edges that look accidental at their rendered size.
+- Heavy overlays that hide the image's useful subject or detail.
 - Images with empty, missing, or placeholder `src` values.
 
 ### General quality
@@ -87,5 +106,5 @@ Check the following during `audit` and `implement-polish` when relevant:
 - Heading levels that skip and break the document outline.
 - Multi-line body copy with line-height below about 1.3; usually use 1.5–1.7.
 
-When the project already includes Impeccable or its CLI is available, use `npx impeccable detect <target>` as supporting evidence for web code or rendered URLs. Do not install a new dependency solely for QA without user approval. The detector complements screenshot review and contextual judgment; it does not replace them and does not apply to native UI code.
+When the project already includes Impeccable or its CLI is available, use the installed executable (for example, `npx --no-install impeccable detect <target>`) as supporting evidence for web code or rendered URLs. Do not install a new dependency solely for QA without user approval. The detector complements screenshot review and contextual judgment; it does not replace them and does not apply to native UI code.
 
