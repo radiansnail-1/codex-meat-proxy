@@ -1,4 +1,4 @@
 interface:
   display_name: "Design QA"
-  short_description: "Independent visual QA and responsive polish"
-  default_prompt: "Use $design-qa to inspect this implemented interface and report evidence-backed visual findings; apply scoped fixes when requested."
+  short_description: "Visual QA, anti-slop critique, and responsive polish"
+  default_prompt: "Use $design-qa to inspect this implemented interface and report evidence-backed usability and visual-distinctiveness findings; apply scoped fixes when requested."
