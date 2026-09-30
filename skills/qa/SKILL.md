@@ -31,7 +31,7 @@ Default web viewports: desktop `1440x900`, laptop `1280x720`, mobile `390x844`. 
 
 ## Surface Selection
 
-For web QA, prefer the harness in-app browser (Claude Browser Use in Claude Code; the Codex in-app browser in Codex — there, read `browser:control-in-app-browser` before the first browser action when available). If it is unavailable or blocked, use the strongest available fallback such as Playwright, another browser surface, screenshots, console output, DOM inspection, or static checks, and state the verification gap clearly.
+For web QA, honor the user-selected browser; otherwise prefer the harness in-app browser. Use the browser tools exposed in the current session and read their initialization documentation before interacting. If that surface is unavailable or blocked, use the strongest available permitted fallback such as Playwright, another browser surface, screenshots, console output, DOM inspection, or static checks, and state the verification gap clearly.
 
 Detect mobile apps before defaulting to web:
 

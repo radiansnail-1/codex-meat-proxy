@@ -17,7 +17,9 @@ Use the smallest useful number within the current tool's concurrency limit. Shar
 
 Use the native delegation tools exposed in the current session and their actual schemas; in Codex this may be `collaboration.spawn_agent`. Do not assume role names or tool namespaces from another harness. Discover a tool only if no suitable callable tool is already available. A skill does not override harness limits or permissions.
 
-Inherit the parent model and reasoning settings by default. Honor a user-selected model or cost route. Use a different route only when explicitly requested or justified by a relevant evaluation and permitted by the tool; do not hardcode a model generation, tier, or maximum effort as a universal default. Verify actual availability rather than silently substituting a tier.
+Prefer the newest Luna model explicitly offered by the current native tool, using its exact model ID and advertised default reasoning effort; never invent an unlisted model ID. Honor a user-selected model, cost route, or task-specific supported effort. Escalate to a stronger available route when observed worker failures or a relevant evaluation justify it, and state the reason. If Luna is unavailable, disclose that and inherit the parent settings unless the user required an exact route; an unavailable exact route needs clarification.
+
+Model overrides may require isolated or bounded history. For `collaboration.spawn_agent`, use `fork_turns="none"` or a supported recent-turn count when overriding model or effort; a full-history fork inherits parent settings. Supply the necessary context in the worker packet. Follow the active schema rather than copying this example into another harness.
 
 Do not launch a separate CLI just to bypass a native tool limitation. Use a CLI lane only when the requested workflow requires it and its execution scope, model, permissions, and output capture are understood. If delegation is unavailable, continue locally and disclose the limitation.
 
