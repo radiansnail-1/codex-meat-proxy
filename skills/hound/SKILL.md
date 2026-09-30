@@ -4,7 +4,7 @@ description: Unified evidence-driven improvement loop. Use when the user asks to
 license: private
 metadata:
   tags: [hound, gauntlet, iterative-improvement, benchmark, independent-review, optimization, evaluation]
-  related_skills: [agentic-engineering-system, spawn, code-audit]
+  related_skills: [spawn, code-audit]
 ---
 
 # Hound
@@ -142,7 +142,7 @@ Never claim completion while required critics, tests, or live verification are p
 
 - **Hermes:** the lead owns routing, scope, integration, and final verification. Use bounded delegation for builders, critics, research, and verification; inspect child evidence rather than trusting summaries. Keep auth, money, production writes, and irreversible choices in the parent session.
 - **Claude Code:** use native fresh-context subagents for critics and explicit ownership for builders. `/loop` is only a harness convenience; this contract and worksheet remain authoritative.
-- **Codex:** use native Codex subagents/tooling for bounded lanes. If unavailable, use a separate self-contained `codex exec` lane and inspect its output. Use Codex-native model/effort settings only; do not pass Claude aliases across runtimes.
+- **Codex:** use native delegation for bounded lanes and follow `spawn` for available Luna routing, explicit overrides, ownership, and result collection. If native delegation is unavailable, continue locally and disclose the limitation. A separate CLI lane is appropriate only when the requested workflow requires it and its scope, permissions, model, and output capture are understood; never use it to bypass a native limitation.
 
 ## Safety and rollback
 

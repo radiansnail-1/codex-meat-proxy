@@ -155,11 +155,9 @@ Skip this step entirely if `detect` returned zero `video` files. When the corpus
 
 This step has two parts: **structural extraction** (deterministic, free) and **semantic extraction** (LLM, costs tokens).
 
-> **Local Codex routing override:** graphify needs no API key. Never inspect, request, print, or route through `GEMINI_API_KEY`, `GOOGLE_API_KEY`, `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or another provider credential. A code-only corpus uses the deterministic AST path and skips semantic extraction. For docs, papers, or images, semantic extraction always uses Codex subagents with isolated context (`fork_turns="none"` when supported), inheriting model and effort unless the user selects another available route. Follow the current native tool schema and concurrency limit. If native delegation is unavailable, report the limitation rather than switching to a credential-backed provider.
+> **Codex routing:** Graphify needs no API key. Never inspect, request, print, or reuse provider credentials. A code-only corpus uses deterministic extraction and skips semantic agents. For docs, papers, or images, use isolated native subagents and follow `spawn` for model routing: prefer the newest advertised Luna model and honor explicit overrides. Respect the current schema and concurrency limit. If native delegation is unavailable, preserve the graph and report the limitation rather than switching to a credential-backed provider.
 
-**Run Part A (AST) and Part B (semantic) in parallel. Dispatch all semantic subagents AND start AST extraction in the same message. Both can run simultaneously since they operate on different file types. Merge results in Part C as before.**
-
-Note: Parallelizing AST + semantic saves 5-15s on large corpora. AST is deterministic and fast; start it while subagents are processing docs/papers.
+Part A and Part B may overlap when the tools permit it and output files are separate. Schedule semantic chunks within the current concurrency limit; merge only after both parts complete.
 
 #### Part A - Structural extraction for code files
 
@@ -199,13 +197,7 @@ Path('graphify-out/.graphify_semantic.json').write_text(json.dumps({'nodes':[],'
 "
 ```
 
-**MANDATORY: You MUST use the Agent tool here. Reading files yourself one-by-one is forbidden - it is 5-10x slower. If you do not use the Agent tool you are doing this wrong.**
-
-Before dispatching subagents, print a timing estimate:
-- Load the uncached file list and build the bounded chunks described in Step B1.
-- Estimate agents needed from the actual number of bounded chunks, not file count alone.
-- Estimate time: ~45s per agent batch (they run in parallel, so total ≈ 45s × ceil(agents/parallel_limit))
-- Print: "Semantic extraction: ~N files → X agents, estimated ~Ys"
+Use the native delegation tool for uncached semantic chunks. Report the actual file/chunk counts; give a timing estimate only when supported by measurements from a comparable run.
 
 **Step B0 - Check extraction cache first**
 
@@ -251,24 +243,13 @@ Load files from `graphify-out/.graphify_uncached.txt`. Build chunks using both f
 
 These are hard workload bounds, not merely timing hints. Do not combine small chunks afterward if that would cross either limit.
 
-**Step B2 - Dispatch ALL subagents in a single message (Codex)**
+**Step B2 - Dispatch bounded waves of semantic agents**
 
-> **Codex platform:** Uses `spawn_agent` + `wait_agent` + `close_agent` instead of the Agent tool.
-> Requires `multi_agent = true` under `[features]` in `~/.codex/config.toml`.
-> If `spawn_agent` is unavailable, tell the user to add that config and restart Codex.
+Use the current native spawn tool and its actual schema. Follow `spawn` for Luna selection, supported effort, context isolation, and concurrency. For tools exposing these fields, provide a unique lowercase `task_name`, `fork_turns="none"`, the resolved model/effort, and a self-contained extraction message. Do not assume a `close_agent` tool or a configuration flag; unavailable delegation is a concrete limitation, not evidence that a particular setting is missing.
 
-Use the current native spawn tool for each chunk, scheduling bounded waves within its concurrency limit. Use a unique lowercase task name, isolated context where supported, and inherited model/effort unless explicitly selected otherwise. Adapt this illustrative call to the actual schema:
+Collect final results through the session's supported result channel. A wait notification may only signal readiness; it is not necessarily the result payload. Stop or release agents only through tools actually exposed.
 
-```
-spawn_agent(task_name="graphify_semantic_01", fork_turns="none", message="Your task is to perform the following. Follow the instructions below exactly.\n\n<agent-instructions>\n[extraction prompt, with FILE_LIST, CHUNK_NUM, TOTAL_CHUNKS, DEEP_MODE substituted]\n</agent-instructions>\n\nExecute this now. Output ONLY the structured JSON response.")
-```
-
-After all agents are dispatched, collect results sequentially in memory:
-```
-result = wait_agent(handle); close_agent(handle)   # repeat per handle
-```
-
-Parse each result as JSON. Accumulate nodes/edges/hyperedges across all results and write to `graphify-out/.graphify_semantic_new.json`. Codex collects in memory, so there are no per-chunk files on disk; the disk-based success checks in Step B3 do not apply — a chunk that returns invalid JSON is the failure signal instead.
+Parse each result as JSON and serialize its exact data without hand-transcribing nodes or reconstructing arrays from a summary. Prefer tool-accessible structured results. If the runtime cannot expose result data for serialization, explicitly assign each agent a unique output JSON path in the temporary extraction directory and collect that file; do not assume an unassigned file exists. Validate schema, edge endpoints, exact assigned source paths and coverage before merging results. Never let agents write the tracked graph or manifest.
 
 Subagent prompt template:
 
@@ -276,7 +257,7 @@ See `references/extraction-spec.md` for the compact subagent prompt (rules, node
 
 **Step B3 - Collect, validate, cache, and merge (Codex)**
 
-Wait up to 180 seconds for every handle, then immediately `close_agent(handle)`. Parse each final result as JSON in memory. A successful chunk must be valid JSON with top-level `nodes`, `edges`, and `hyperedges`; do not expect a `.graphify_chunk_NN.json` file from Codex.
+Track a 180-second deadline for each running chunk using bounded waits no longer than 60 seconds. On timeout, stop the worker through an available tool before retrying its ownership. If it cannot be stopped, preserve its assigned output path and defer the retry until it finishes. Parse each final result as JSON from structured tool data or its explicitly assigned output file. A successful chunk must have valid `nodes`, `edges`, and `hyperedges` plus coverage of its assigned sources; file existence alone is insufficient.
 
 If a multi-file chunk times out or returns invalid JSON, split that chunk in half by estimated word count and retry the two smaller chunks once using the same model, effort, prompt, and absolute paths. A one-file chunk is not split again. Evaluate the final leaf chunks for the failure threshold; the replaced parent attempt is diagnostic history, not an additional corpus chunk. Never retry indefinitely.
 
