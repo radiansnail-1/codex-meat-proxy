@@ -1,4 +1,4 @@
 interface:
   display_name: "Handoff"
-  short_description: "Commit and push a compact resume checkpoint"
-  default_prompt: "Use $handoff to compact the canonical resume files, update required Graphify state, and commit and push the scoped checkpoint without rerunning product verification."
+  short_description: "Save a checkpoint or close a session with guidance updates"
+  default_prompt: "Use $handoff to preserve the current session in the requested mode: a resume note, guidance closeout, or scoped checkpoint."

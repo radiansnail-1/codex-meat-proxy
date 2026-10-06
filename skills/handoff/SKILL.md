@@ -1,11 +1,19 @@
 ---
 name: handoff
-description: Create and push a lightweight, resumable project checkpoint by refreshing plan.md, learnings.md, and a rolling 14-day changelog, updating a required tracked Graphify graph, and committing only the scoped work. Use for handoff, checkpoint, save-state, or resume-note requests. Use handoff-pr-merge when a PR and merge are also requested.
+description: Save a resumable project checkpoint, produce a resume note, or close a session with requested updates to project guidance, skills and knowledge. Use for handoff, checkpoint, save-state, resume-note, or summarise-the-changes-and-update-guidance requests. Use handoff-pr-merge when a PR and merge are also requested.
 ---
 
 # Handoff
 
 Preserve the current working state quickly enough that a fresh session can resume it. A handoff records evidence already produced; it does not re-verify the product or repair repository tooling.
+
+## Choose the requested mode
+
+- **Summary or resume note:** produce the requested text using existing evidence. Do not start the checkpoint workflow.
+- **Session closeout with guidance updates:** use [session closeout](references/session-closeout.md) when the user asks to summarize changes and carry lessons into project guidance, skills or a wiki. Complete those requested edits; do not infer a full code checkpoint or publication from the summary.
+- **Full checkpoint:** follow the checkpoint workflow below. Add broader guidance updates only when requested or already authorized.
+
+Mode selection preserves existing session authority. A closeout can validate the instruction files it changes; the product-verification restrictions below still apply to rechecking the product.
 
 ## Checkpoint Boundary
 
