@@ -9,7 +9,7 @@ Extend `handoff` with PR publication, required CI gating, merge, and remote-targ
 
 ## Authorization
 
-An explicit `$handoff-pr-merge` request authorizes the scoped source commit, push, PR, and merge after required checks pass. When the work materially changes durable project context, it also authorizes a narrowly scoped update to the one relevant wiki vault, its required derived-index refresh and leak scan, and a separate wiki commit and push. A user instruction such as “PR only,” “draft,” “do not merge,” or “do not update the wiki” narrows that authority and wins over the skill name. PR-only or unmerged work must not be written to the wiki as completed fact.
+An explicit `$handoff-pr-merge` request authorizes the scoped source commit, push, PR, and merge after required checks pass. When the work materially changes durable project context, it also authorizes a narrowly scoped update to the one relevant wiki vault, its required derived-index refresh and leak scan, and separate wiki publication or a Git snapshot under that vault’s rules. A user instruction such as “PR only,” “draft,” “do not merge,” or “do not update the wiki” narrows that authority and wins over the skill name. PR-only or unmerged work must not be written to the wiki as completed fact.
 
 The skill never authorizes deployment, App Store/TestFlight upload, release, production configuration changes, credential mutation, or paid-media activity.
 
@@ -130,11 +130,11 @@ Skip the wiki update for internal refactors, formatting, dependency churn, routi
 When relevant:
 
 1. Select exactly one vault using the `wiki` routing contract. Cross-vault updates require an explicit user request.
-2. Synchronize the vault and read its instructions and routing index before editing.
+2. Identify the selected vault’s current canonical store, then follow its prescribed synchronization direction and read its instructions and routing index. A local Git checkout may be a recovery snapshot rather than the editable source; do not overwrite a cloud-canonical store from Git.
 3. Extend the smallest set of existing entity or project pages; create a page only when the vault's conventions clearly require one.
 4. Write a concise, human-level summary of the durable change: what it is, why it matters, current status, important constraints or decisions, and a source link to the merged PR when useful.
 5. Preserve uncertainty and distinguish shipped/current behavior from plans. Do not paste the PR body, handoff files, code, diffs, file paths, Graphify output, or a general repository summary.
-6. Refresh only that vault's derived index, run its mandatory leak scan, inspect the scoped wiki diff, then commit and push the wiki change separately under the vault's repository rules.
+6. Verify the edit in the canonical store, refresh only that vault’s derived index, run its mandatory leak scan and inspect the scoped change. Publish the wiki separately under its rules. For a cloud-canonical wiki, verify cloud synchronization before taking the one-way Git snapshot; for a Git-canonical wiki, use its scoped commit/push workflow. Do not create a schedule as part of handoff.
 
 A wiki sync, auth, conflict, routing, index, or leak-scan failure does not undo a verified source merge. Stop the wiki portion, preserve all local work, and report the exact partial-completion blocker. Never force-push, bypass vault safeguards, or write to a guessed vault.
 
@@ -147,7 +147,7 @@ Lead with the result and include:
 - required CI result;
 - checkpoint commit(s), plus the Graphify result and graph-only commit only when the repository format required one;
 - canonical files included;
-- wiki vault and pages updated, with the wiki commit, or a one-line reason no durable wiki update was relevant;
+- wiki scope, canonical store and pages updated, with the separate publication or backup commit, or a one-line reason no durable wiki update was relevant;
 - unrelated local changes preserved;
 - remaining unverified work or blockers.
 
