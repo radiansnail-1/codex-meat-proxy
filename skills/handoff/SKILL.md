@@ -13,7 +13,7 @@ Preserve the current working state quickly enough that a fresh session can resum
 - **Session closeout with guidance updates:** use [session closeout](references/session-closeout.md) when the user asks to summarize changes and carry lessons into project guidance, skills or a wiki. Complete those requested edits; do not infer a full code checkpoint or publication from the summary.
 - **Full checkpoint:** follow the checkpoint workflow below. Add broader guidance updates only when requested or already authorized.
 
-Mode selection preserves existing session authority. A closeout can validate the instruction files it changes; the product-verification restrictions below still apply to rechecking the product.
+Mode selection preserves existing session authority. A closeout can validate the instruction files it changes. Authorized wiki writeback also requires its scoped readback, privacy and backup checks; these do not re-verify the product.
 
 ## Checkpoint Boundary
 

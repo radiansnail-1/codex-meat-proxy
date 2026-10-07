@@ -17,6 +17,8 @@ Use the session's existing evidence. Identify completed changes, explicit decisi
 
 Update only locations affected by a material change. Preserve user-authored TODOs and existing layouts; do not manufacture a new journal or scatter the same fact across every destination. For cloud knowledge, use the canonical source, retain file IDs and follow its backup process. Git recovery copies and generated search indexes do not supersede the canonical page.
 
+For wiki writeback, follow the available wiki adapter and live scope entry instructions; preserve its library or topic-guide layout and edit the owning record. Verify canonical readback and required privacy checks, complete its reviewed backup, then seal any agreement record and refresh only that scope's derived index.
+
 Carry explicit corrections forward at their actual scope. A current campaign allowance or product name belongs in its dated owning record, not a generic skill default. A reusable rule for comparing currencies can belong in the campaign skill. Record automation cadence and publishing authority per workflow; manual wiki upkeep and recurring blog publication can coexist. Do not infer a blanket permission or create a schedule.
 
 A request to update skills or project guidance authorizes the relevant edits. Use available skill-authoring/maintenance workflows for substantive skill changes, retaining their local/public boundary and standing publication preferences. Other writes, sharing changes, merges and deployments follow their existing authority; the closeout is not new authorization for them. If the user asked only for recommendations, propose edits rather than applying them.
