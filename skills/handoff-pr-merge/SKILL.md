@@ -33,6 +33,8 @@ Do not run new local tests, lint, type checks, builds, native generation, archiv
 
 Record evidence already produced. If evidence is absent, say so in the PR. Required CI is the merge gate; this skill does not manufacture additional evidence before publishing.
 
+These restrictions apply to product re-verification. An authorized wiki update still requires its canonical readback, privacy checks and reviewed backup verification.
+
 Do not crawl or ingest the whole codebase into the wiki. Source code, file inventories, commit-by-commit history, implementation mechanics, transient debugging notes, CI details, and ordinary refactors belong in Git, the PR, or the compact handoff files.
 
 ## Workflow
@@ -130,11 +132,12 @@ Skip the wiki update for internal refactors, formatting, dependency churn, routi
 When relevant:
 
 1. Select exactly one vault using the `wiki` routing contract. Cross-vault updates require an explicit user request.
-2. Identify the selected vault’s current canonical store, then follow its prescribed synchronization direction and read its instructions and routing index. A local Git checkout may be a recovery snapshot rather than the editable source; do not overwrite a cloud-canonical store from Git.
+2. Identify the selected scope's current canonical store and read its live entry instructions, directory and owning pages. Preserve its library or topic-guide layout. Reconcile against the agreed version before writing; Git recovery copies and search results do not override a cloud-canonical page.
 3. Extend the smallest set of existing entity or project pages; create a page only when the vault's conventions clearly require one.
 4. Write a concise, human-level summary of the durable change: what it is, why it matters, current status, important constraints or decisions, and a source link to the merged PR when useful.
 5. Preserve uncertainty and distinguish shipped/current behavior from plans. Do not paste the PR body, handoff files, code, diffs, file paths, Graphify output, or a general repository summary.
-6. Verify the edit in the canonical store, refresh only that vault’s derived index, run its mandatory leak scan and inspect the scoped change. Publish the wiki separately under its rules. For a cloud-canonical wiki, verify cloud synchronization before taking the one-way Git snapshot; for a Git-canonical wiki, use its scoped commit/push workflow. Do not create a schedule as part of handoff.
+6. Verify canonical content readback, location and relevant access; run its mandatory privacy/focused checks and inspect the scoped change. Complete the reviewed backup or publication separately under that scope's rules. For a cloud-canonical wiki, use verified live content for its Git recovery snapshot; for a Git-canonical wiki, use its scoped publication workflow.
+7. Seal any agreement record only after canonical content and reviewed recovery match, then refresh only that scope's documented derived index. Do not create a schedule as part of handoff.
 
 A wiki sync, auth, conflict, routing, index, or leak-scan failure does not undo a verified source merge. Stop the wiki portion, preserve all local work, and report the exact partial-completion blocker. Never force-push, bypass vault safeguards, or write to a guessed vault.
 
