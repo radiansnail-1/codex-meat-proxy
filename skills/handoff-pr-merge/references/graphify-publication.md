@@ -38,26 +38,13 @@ Some repositories require the assigned PR number in tracked handoff files. In th
 
 This is an ordering exception, not permission to invent a future PR number or check result. The provisional push exists only to obtain GitHub's durable PR identity; it is not the CI acceptance head.
 
-For the Plasticman repository's current exact-commit format, the normal fallback commands are:
+Start with incremental publication. When it requires a semantic refresh or
+local rebuild, the handoff request authorizes that required work without an
+additional permission pause. Load the Graphify skill and follow its documented
+workflow. Keep the work limited to producing a valid required graph; unrelated
+query/explain exploration and visualization remain outside this scope.
 
-```bash
-npm run graphify:update
-git add graphify-out/graph.json
-git commit -m "Refresh Graphify graph for <scope>"
-npm run graphify:check
-git diff --check
-```
-
-`GRAPH_REPORT.md` and `graph.html` are reproducible local views there and must
-remain ignored. Do not stage them merely because the update regenerated them.
-
-Do not run a full corpus rebuild, query/explain traversal, visualization pass,
-semantic extraction, or graph repair during handoff/PR publication. If the
-normal incremental update is blocked, report that blocker instead of silently
-widening the workflow. Full rebuild or recovery is a separate explicitly
-authorized task.
-
-The separate Plasticman graph commit is currently required because graph
+A separate graph commit is required in the exact-commit format because graph
 metadata records the retained source commit that was current when generation
 began. Amending, squashing, or replacing that source commit can make freshness
 metadata dishonest or leave it pointing to an object unavailable in CI.
@@ -65,11 +52,10 @@ metadata dishonest or leave it pointing to an object unavailable in CI.
 ## Documentation And Semantic Markers
 
 Documentation, media, and the canonical handoff files may create a semantic
-update marker. Do not ignore or delete the marker to make validation pass. If
-the repository's normal incremental publication cannot resolve it without a
-semantic/full workflow, stop PR publication and report the marker as the exact
-blocker. Do not launch semantic agents or reconstruct Graphify state as PR
-bookkeeping.
+update marker. Do not ignore or delete the marker to make validation pass.
+Resolve it through the Graphify skill's supported semantic-update workflow,
+using bounded semantic subagents when required. Continue normal publication
+and integrity checks after that workflow succeeds.
 
 Once the final Graphify pass starts, avoid editing handoff files for transient
 CI events. A repository that requires the PR number should already contain it,
@@ -94,12 +80,12 @@ If the update command succeeds but the integrity check fails:
 - stop publication of the invalid graph;
 - preserve the last known-good graph and the scoped checkpoint work;
 - report the exact update/check command and diagnostic blocker;
-- do not read recovery workflows, inspect Graphify internals, reconstruct
-  manifests/baselines, create temporary worktrees, or attempt ad hoc repair as
-  part of handoff/PR publication.
+- follow documented Graphify recovery when it can safely resolve the failure;
+  stop and report a concrete blocker when recovery would require ambiguous
+  source deletion, unavailable access, or bypassing an integrity safeguard.
 
-Graphify repair may continue only as a separately authorized task. After that
-repair, rerun the repository-supported publication path normally.
+After supported recovery, rerun the repository-supported publication path
+normally. Required local recovery does not require a separate permission pause.
 
 Do not hand-edit `graphify-out/graph.json`, discard semantic markers, or invent
 ad hoc graph-building code merely to obtain a passing exit code. If the tracked

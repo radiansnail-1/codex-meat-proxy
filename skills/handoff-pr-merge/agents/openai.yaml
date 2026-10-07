@@ -1,4 +1,4 @@
 interface:
-  display_name: "Handoff PR Merge"
-  short_description: "Checkpoint, PR, required CI, and merge"
-  default_prompt: "Use $handoff-pr-merge to publish the compact scoped checkpoint, wait for required CI, merge it, and verify the remote target without rerunning product verification."
+  display_name: "Session Closeout"
+  short_description: "Session learning, wiki updates and optional PR merge"
+  default_prompt: "Use $handoff-pr-merge to close this session: preserve resume state, update relevant skills and wiki knowledge, and publish or merge scoped repository work when applicable."
