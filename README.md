@@ -4,7 +4,7 @@
 
 Autonomous AI coding agents are extraordinarily capable, but real-world software engineering requires a human operator—the "meat proxy"—for sensitive access, product discernment, physical hardware, and high-stakes release gates.
 
-**Codex Meat Proxy** is a curated, verified, and plug-and-play collection of **24 agent skills**. Each skill follows the official Codex / AI agent skill format (`SKILL.md` frontmatter, progressive references, and bounded agent delegation).
+**Codex Meat Proxy** is a curated, verified, and plug-and-play collection of **23 agent skills**. Each skill follows the official Codex / AI agent skill format (`SKILL.md` frontmatter, progressive references, and bounded agent delegation).
 
 ---
 
@@ -50,7 +50,7 @@ When improving a skill, reconcile its reusable changes with the public version i
 
 ## Skills Catalog
 
-The 24 skills are organized into focused operational domains:
+The 23 skills are organized into focused operational domains:
 
 ### 🏗️ Planning & Architecture
 | Skill | Description | Primary Triggers |
@@ -63,8 +63,7 @@ The 24 skills are organized into focused operational domains:
 | Skill | Description | Primary Triggers |
 |---|---|---|
 | [`spawn`](skills/spawn) | Safe, bounded delegation to autonomous subagents with separate context, clean tool scopes, and artifact verification. | `/spawn`, "delegate task", "spawn subagent" |
-| [`handoff`](skills/handoff) | Generates crisp, resumable project checkpoints (`plan.md`, `learnings.md`) so work can pause and resume cleanly. | "create handoff", "checkpoint state" |
-| [`handoff-pr-merge`](skills/handoff-pr-merge) | Publishes handoff checkpoints via a structured GitHub PR and authorized merge workflow. | "pr handoff", "publish handoff" |
+| [`handoff-pr-merge`](skills/handoff-pr-merge) | Closes sessions with resume state, relevant skill/wiki updates, and scoped checkpoint or PR/merge delivery when applicable. | "handoff", "close out this session", "publish and merge" |
 | [`github-yeet`](skills/github-yeet) | Fast git staging, scoped commit, branch push, and draft PR flow with Windows Schannel fallback. | "yeet", "publish to github" |
 
 ### 🔍 Debugging, Auditing & Quality

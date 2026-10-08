@@ -1,154 +1,61 @@
 ---
 name: handoff-pr-merge
-description: "Publish a lightweight handoff through a GitHub PR and authorized merge, then preserve relevant durable project context in the appropriate wiki without mirroring the codebase. Includes compact canonical state, required tracked Graphify, CI gating, merge, remote verification, and a relevance-gated wiki update. Do not use for release, deployment, or product re-verification."
+description: Close a work session by preserving resume state, reviewing how the user worked, and updating relevant skills, project guidance and canonical wiki knowledge. Publish a scoped checkpoint or GitHub PR and merge when the request and session require delivery; complete relevant knowledge updates even when there is no code to publish. Use for handoff, session closeout, checkpoint, save-state, or PR-and-merge requests. Summary-only requests return text. Do not use for deployment, release or product re-verification.
 ---
 
-# Handoff PR Merge
+# Session Closeout, Checkpoint and Publication
 
-Extend `handoff` with PR publication, required CI gating, merge, and remote-target verification. This is delivery coordination, not a new validation or release workflow.
+Use one closeout workflow for session learning, durable knowledge and optional repository delivery. A missing repository or source PR does not prevent relevant skill or wiki updates.
 
-## Authorization
+## Scope and authority
 
-An explicit `$handoff-pr-merge` request authorizes the scoped source commit, push, PR, and merge after required checks pass. When the work materially changes durable project context, it also authorizes a narrowly scoped update to the one relevant wiki vault, its required derived-index refresh and leak scan, and a separate wiki commit and push. A user instruction such as “PR only,” “draft,” “do not merge,” or “do not update the wiki” narrows that authority and wins over the skill name. PR-only or unmerged work must not be written to the wiki as completed fact.
+- An explicit `$handoff-pr-merge` invocation authorizes relevant skill/project-guidance updates, canonical wiki writeback and their existing validation/backup workflows. When the session has scoped repository work to deliver, it also authorizes commit, push, PR and merge after required checks and reviews pass.
+- Natural-language closeout or checkpoint requests select the matching scope; automatic skill selection does not grant a merge. A requested checkpoint authorizes its scoped commit/push; a guidance closeout follows the affected skills' and wikis' existing publication rules.
+- Honor narrower instructions such as summary-only, note-only, local-only, checkpoint-only, PR-only, draft, no merge, no wiki or no skill updates. A summary/resume-note request alone returns text without durable writes.
+- No source changes to deliver: skip source publication and still complete relevant guidance/wiki updates. Do not create an empty PR to make the skill name fit.
+- Deployment, release, uploads, live-service changes, spending, messages to others, sharing changes and new schedules retain their own authorization boundaries. Never force-push or bypass failed checks or branch protection.
 
-The skill never authorizes deployment, App Store/TestFlight upload, release, production configuration changes, credential mutation, or paid-media activity.
+## Review the session
 
-Never force-push, bypass branch protection, override failing checks, or merge a different scope without explicit authorization.
+Use the conversation and evidence already produced. Follow [session closeout](references/session-closeout.md) on every substantive closeout:
 
-## Governing Contracts
+1. Identify completed work, explicit corrections, accepted choices, repeated friction, unresolved work and the next action. Distinguish proposed, applied, verified and pending states.
+2. Decide which lessons are reusable workflow changes and which are project/company facts. Update only affected skills, project guidance and owning knowledge pages; skip any destination with no material delta.
+3. Preserve accepted preferences at their actual scope. Do not infer a permanent rule from an unaccepted suggestion or one ambiguous example.
+4. Apply relevant skill and project-guidance edits before the final checkpoint when they belong in that repository. Defer wiki claims that depend on source delivery until its actual outcome is verified; independent decisions or lessons can be written without a source merge.
 
-Before mutation:
+## Preserve project state when relevant
 
-1. Read applicable repository instructions.
-2. Load `handoff` and use its compact canonical-file, evidence, commit, Graphify, and push contract.
-3. Load `github-yeet` only for GitHub publication mechanics. In this handoff flow, reuse existing local verification evidence and use required CI as the merge gate; this overrides its instruction to run fresh local checks.
-4. If the repository tracks Graphify, read [references/graphify-publication.md](references/graphify-publication.md).
-5. If a wiki update may be relevant, load `wiki` and follow its vault routing, synchronization, privacy, indexing, leak-scan, and repository-instruction contracts.
+For a real project checkpoint or repository delivery, use [checkpoint](references/checkpoint.md). A guidance-only closeout does not create three project files in an arbitrary projectless directory.
 
-Repository instructions override this skill when more specific.
+Maintain compact `plan.md`, `learnings.md` and a rolling 14-calendar-day `changelog.md`; preserve unfinished user TODOs. Read [templates](references/templates.md) only when creating or substantially restructuring those files.
 
-## What This Skill Does Not Verify
+Record product checks already completed; mark absent or stale evidence unverified. Do not run fresh product tests, lint, builds, simulators, dashboards, live probes or a release audit. Validation of changed instructions, mandatory wiki/privacy/backup checks and a repository-required graph integrity check remain part of the authorized edits.
 
-Do not run new local tests, lint, type checks, builds, native generation, archives, simulators, credential checks, SDK checks, dashboards, live-service probes, browser QA, reviews, or device QA.
+## Deliver repository work when applicable
 
-Record evidence already produced. If evidence is absent, say so in the PR. Required CI is the merge gate; this skill does not manufacture additional evidence before publishing.
+Skip this section when there is no scoped repository work to publish or the selected mode excludes publication.
 
-Do not crawl or ingest the whole codebase into the wiki. Source code, file inventories, commit-by-commit history, implementation mechanics, transient debugging notes, CI details, and ordinary refactors belong in Git, the PR, or the compact handoff files.
+1. Read applicable repository instructions; inspect Git state and the scoped staged/unstaged diff. Preserve unrelated changes, use explicit paths, and never push directly to the remote default branch unless requested. If on that branch, create a non-default checkpoint branch.
+2. Use `github-yeet` when available for publication mechanics; reuse session verification evidence. For required tracked Graphify, follow [graph publication](references/graphify-publication.md), including supported semantic refresh/recovery and exact source identity. Do not delegate deterministic bookkeeping.
+3. Stage the scoped source and canonical state; run whitespace/scope checks. Prefer one commit when the graph supports a staged snapshot/source digest; an exact existing commit identity requires a source/checkpoint commit followed by a graph-only commit. Never use a temporary or unreachable pretend commit.
+4. Push the final branch and create or update the matching PR. If tracked state requires the real PR number, use the graph reference's provisional-publication exception before the final graph pass. Attach created/updated PRs using the host's attachment tool when available.
+5. Keep the PR body concise: resulting behavior, existing evidence, unverified work, excluded changes and material risks. Keep credentials, private source material and transient CI timestamps out of tracked handoff files.
+6. For PR-only/draft requests, leave the PR open as requested. Otherwise, wait for required CI and review gates on the final head. On a failed/cancelled check or conflict, report the blocker; repair it only when already authorized by the active request. Do not start unrelated investigations.
+7. When merge is authorized and actual checks/reviews permit it, mark ready if needed, use the repository's merge method (otherwise squash), verify GitHub reports merged, then fetch and verify the merge commit on the remote target.
+8. Do not create a post-merge/status-only checkpoint or Graphify cycle merely to record CI or merge timestamps.
 
-## Workflow
+## Complete relevant skill and wiki writeback
 
-### 1. Create The Lightweight Source Checkpoint
+Always finish the material writeback selected by the session review, including when source publication was skipped, left draft or blocked.
 
-Use the `handoff` contract to compact the canonical files, keep only the rolling 14-calendar-day changelog window (including the active local date), and commit the scoped source plus handoff files. Before pruning older changelog sections, move unresolved work to `plan.md` and durable lessons to `learnings.md`; never discard unfinished owner TODOs or re-import expired history from another checkout.
+- **Skills:** capture reusable corrections in the existing affected skill/resources. Use the available authoring/maintenance workflow; reconcile installed counterparts without overwriting private adaptations, and follow their public-update preference. Validate changed instructions and links. Report draft/publication state separately.
+- **Wiki:** use the available wiki adapter and the scope's live entry instructions, directory and owning pages. Preserve its library/topic-guide layout, file IDs, source dates, concurrent changes and privacy boundaries. Reconcile against the agreed version; Git recovery and search results do not override a cloud-canonical page.
+- Keep current facts in their owning record, dated evidence with its subject/work, and agreed actions in the existing task system. Write only supported changes; never describe unmerged code as shipped or paste repository inventories, raw diffs or whole handoff files into the wiki.
+- Verify canonical readback/location/relevant access, run required privacy/focused checks, complete the reviewed backup, seal agreement only when both copies match, then refresh only that scope's documented index. Do not turn manual upkeep into a schedule.
 
-If repository instructions require the assigned PR number in tracked handoff state, deliberately defer final Graphify publication. First obtain the real PR identity through the minimal provisional publication flow in Step 3, then update the canonical files once and follow `handoff`'s commit-shape contract. This sequencing overrides the ordinary `handoff` push/Graphify order only for that PR-identity dependency.
+A source-publication blocker does not block independent skill or knowledge updates. If wiki/skill access or reconciliation fails, preserve the prepared change and report that portion as pending; never claim completion or bypass its safeguards.
 
-Do not guess a PR number or remote status. Do not restage unrelated owner changes. Model the intended post-merge resume state, but record remote facts only after GitHub returns them.
+## Report the outcome
 
-### 2. Confirm Cheap Publication Invariants
-
-Before opening or updating the PR, inspect:
-
-```bash
-git status --short --branch
-git diff --check
-git branch --show-current
-git fetch origin --prune
-gh auth status
-```
-
-Confirm:
-
-- the PR head is the intended checkpoint branch;
-- the base is the intended remote target branch;
-- the scoped diff contains no unrelated changes, conflict markers, `.env*`, secrets, or generated artifacts that repository rules exclude;
-- no requested work remains only in an unstaged or unpushed path;
-- the PR is mergeable or has an explicit, reported blocker.
-
-These are publication-scope checks, not product verification.
-
-### 3. Create Or Update The PR And Finalize Tracked Handoff State
-
-When tracked handoff state requires the assigned PR number:
-
-1. Prefer creating or updating the PR from an existing pushed branch commit. If the branch has no unique pushed commit, create and push the minimum scoped provisional checkpoint needed for GitHub to assign a PR number; do not create an empty or Graphify-only commit for this purpose.
-2. Create or update the PR and capture its real number and URL.
-3. Update the canonical files once with that PR identity and the stable current state: required CI is pending on the final head, merge is intended after required checks pass, and the concrete post-merge next action remains recorded.
-4. If required, run only the repository-supported incremental Graphify publication. Prefer generating from the staged snapshot or source digest and include the canonical update and graph in one final checkpoint commit when the repository supports it.
-5. If the graph embeds an exact existing commit identity, follow `handoff`'s structurally required source/handoff commit plus graph-only commit. Never create a temporary or unreachable "pretend" commit. Run the normal integrity/freshness check and push the final PR head.
-
-Do not wait for or memorialize checks on the provisional head. After final Graphify publication starts, keep passing/failing CI timestamps in GitHub and the completion report; do not create another handoff/Graphify cycle merely to replace “pending” with “passed.” If incremental Graphify refuses because it needs semantic extraction, a full rebuild, version repair, manifest/baseline reconstruction, or other recovery, stop publication and report the blocker; do not expand PR delivery into Graphify recovery. If a real blocker or scope change alters resume state, follow the repository's explicit rules.
-
-When the repository does not require a real PR identity in tracked files, use the ordinary `handoff` sequence: Graphify and push the complete checkpoint before creating the PR.
-
-Keep the PR body concise:
-
-- what changed and why;
-- existing verification evidence;
-- what remains unverified;
-- deliberately excluded local changes;
-- remaining risks or external gates.
-
-Do not include raw environment values, credentials, tokens, unsupported claims, or the entire handoff documents.
-
-If the user requested PR-only, leave it open or draft as requested and stop after reporting the URL.
-
-### 4. Wait Only For Required CI
-
-Wait for required GitHub checks to settle, for example:
-
-```bash
-gh pr checks <number> --watch --interval 10
-```
-
-If a required check fails, is cancelled, or the PR becomes non-mergeable, stop and report the exact blocker. Do not automatically expand the task into debugging, code changes, local verification, or repeated Graphify cycles. Continue only when the user asks to fix the blocker or the fix is already explicitly within the active request.
-
-### 5. Merge And Verify
-
-When merge is authorized, the PR is mergeable, and required checks pass:
-
-1. Inspect the live PR state and review requirements.
-2. Mark a draft ready if necessary.
-3. Use the repository's requested merge method; otherwise prefer squash merge.
-4. Verify GitHub reports the PR merged.
-5. Fetch and verify the merge commit is present on the remote target branch.
-
-Do not create a post-merge handoff commit merely to record the merge; GitHub and the remote branch are the durable authority.
-
-### 6. Preserve Relevant Project Context In The Wiki
-
-After the merge and remote-target verification, decide whether the completed work changed knowledge that should survive outside the repository. A wiki update is relevant when the merge materially changes one or more of:
-
-- what the product, company, or team does;
-- a user-facing capability, offering, workflow, or operating model;
-- a durable product, business, architecture, or integration decision and its rationale;
-- an important external dependency, ownership boundary, constraint, or recurring operating procedure;
-- the high-level status of a meaningful initiative when that status is already tracked in the wiki.
-
-Skip the wiki update for internal refactors, formatting, dependency churn, routine bug fixes with no durable lesson, generated changes, test-only work, and other implementation detail. When uncertain, prefer no edit and report that no durable wiki delta was identified.
-
-When relevant:
-
-1. Select exactly one vault using the `wiki` routing contract. Cross-vault updates require an explicit user request.
-2. Synchronize the vault and read its instructions and routing index before editing.
-3. Extend the smallest set of existing entity or project pages; create a page only when the vault's conventions clearly require one.
-4. Write a concise, human-level summary of the durable change: what it is, why it matters, current status, important constraints or decisions, and a source link to the merged PR when useful.
-5. Preserve uncertainty and distinguish shipped/current behavior from plans. Do not paste the PR body, handoff files, code, diffs, file paths, Graphify output, or a general repository summary.
-6. Refresh only that vault's derived index, run its mandatory leak scan, inspect the scoped wiki diff, then commit and push the wiki change separately under the vault's repository rules.
-
-A wiki sync, auth, conflict, routing, index, or leak-scan failure does not undo a verified source merge. Stop the wiki portion, preserve all local work, and report the exact partial-completion blocker. Never force-push, bypass vault safeguards, or write to a guessed vault.
-
-## Completion Report
-
-Lead with the result and include:
-
-- PR URL and final state;
-- remote target branch and merge commit when merged;
-- required CI result;
-- checkpoint commit(s), plus the Graphify result and graph-only commit only when the repository format required one;
-- canonical files included;
-- wiki vault and pages updated, with the wiki commit, or a one-line reason no durable wiki update was relevant;
-- unrelated local changes preserved;
-- remaining unverified work or blockers.
-
-Never call the source-delivery workflow complete until GitHub and the remote target branch agree. Report wiki completion separately so a post-merge wiki blocker is visible rather than misrepresenting the source merge.
+Lead with what was completed. Include the relevant project resume state, skills/guidance and wiki pages updated, validation, source/public-skill PR states, merge/backup evidence, preserved unrelated changes and concrete blockers. State why source publication or a writeback destination was skipped when relevant. A local edit, a draft PR, a saved plugin release and merged main are different states.

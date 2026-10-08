@@ -104,7 +104,7 @@ Do not create or update `plan.md`, `learnings.md`, `changelog.md`, `TODOS.md`,
 asks to persist the review.
 
 If persistence is requested, write the smallest useful note into the existing
-plan or use the `handoff` skill convention. Do not create new Markdown artifacts by
+plan or use the `handoff-pr-merge` checkpoint convention. Do not create new Markdown artifacts by
 default.
 
 ## Output

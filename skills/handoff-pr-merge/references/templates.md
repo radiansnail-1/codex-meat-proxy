@@ -61,4 +61,3 @@ Target at most 20–40 active bullets. Remove superseded, duplicated, transient,
 ```
 
 Keep only entries dated within the latest 14 calendar days. Use roughly 3–6 bullets for a meaningful scope and omit routine mechanics. Older context remains available through Git history.
-
