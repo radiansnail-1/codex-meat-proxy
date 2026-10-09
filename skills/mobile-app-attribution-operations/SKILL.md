@@ -112,6 +112,7 @@ A privacy-safe client event may record purchase outcome for UX analysis, but one
 
 - Do not add ATT merely to make attribution “work”; aggregate attribution may be sufficient.
 - If ATT is approved, request contextually, honor denial, refresh identifiers after changes, update usage description/privacy manifest/store disclosures, and preserve opt-out/reset.
+- Record identified tracking and anonymous aggregate reporting separately. ATT denial does not establish that aggregate reporting must stop; verify the approved consent behavior and the aggregate paid-event path independently.
 - Re-check current Apple and provider documentation before release; SKAN/AdAttributionKit behavior and partner requirements change.
 
 ## Dashboard configuration is a separate gate
@@ -126,6 +127,8 @@ Verify the exact:
 - SKAN/AdAttributionKit schema owner and publication;
 - RevenueCat production/sandbox credentials;
 - deep links when required by the campaign.
+
+Separate sandbox/debug receipts from production event eligibility. A received test purchase proves that test route, not that Purchase is selectable for production optimization; do not promise that one real purchase will unlock it.
 
 Code completion does not authorize provider configuration, campaign launch, or spend.
 
@@ -145,9 +148,16 @@ Using a fresh test identity/device state where possible:
 10. compare timestamps, currency, gross/net policy, install date, and campaign dimensions;
 11. test opt-out/reset and an existing-user upgrade path.
 
-Do not authorize spend or optimize to purchase until this chain is green. Small launch budgets should normally optimize first for a reachable event such as install or a well-defined activation—not subscriptions without sufficient volume.
+Gate the selected optimization goal on its own evidence. Do not optimize to purchase until production event eligibility and the paid transaction/postback path are verified. If the user explicitly chooses a bounded install or activation campaign while the paid path remains unresolved, verify that selected goal and disclose the remaining paid-measurement gap; do not silently substitute objectives or report the paid path fixed.
 
 Use `references/expo-appsflyer-tiktok-revenuecat.md` for the current Expo/React Native pattern, and re-check its first-party links before implementation.
+
+## Campaign launch and handoff
+
+- Verify the account currency, daily-budget average and any displayed daily/weekly maximums. A daily average is not a hard daily cap.
+- Match the minimum OS targeting to the current store requirement; a privacy campaign label such as iOS 14+ is not proof of app compatibility.
+- Preview the saved creative with the current Facebook/Instagram identities. After a user stops launch for branding changes, keep the campaign paused until they authorize resuming.
+- Read back campaign, ad-set and ad switches plus delivery status. Published, Processing, In review, Active and measured delivery are distinct states; an approval notification alone is not delivery proof.
 
 ## Completion report
 
