@@ -63,7 +63,7 @@ The 23 skills are organized into focused operational domains:
 | Skill | Description | Primary Triggers |
 |---|---|---|
 | [`spawn`](skills/spawn) | Safe, bounded delegation to autonomous subagents with separate context, clean tool scopes, and artifact verification. | `/spawn`, "delegate task", "spawn subagent" |
-| [`handoff-pr-merge`](skills/handoff-pr-merge) | Closes sessions with resume state, relevant skill/wiki updates, and scoped checkpoint or PR/merge delivery when applicable. | "handoff", "close out this session", "publish and merge" |
+| [`session-closeout`](skills/session-closeout) | Closes sessions with resume state, relevant skill/wiki updates, and scoped checkpoint or PR/merge delivery when applicable. | "handoff", "close out this session", "publish and merge" |
 | [`github-yeet`](skills/github-yeet) | Fast git staging, scoped commit, branch push, and draft PR flow with Windows Schannel fallback. | "yeet", "publish to github" |
 
 ### 🔍 Debugging, Auditing & Quality

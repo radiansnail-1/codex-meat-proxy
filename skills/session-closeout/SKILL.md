@@ -1,5 +1,5 @@
 ---
-name: handoff-pr-merge
+name: session-closeout
 description: Close a work session by preserving resume state, reviewing how the user worked, and updating relevant skills, project guidance and canonical wiki knowledge. Publish a scoped checkpoint or GitHub PR and merge when the request and session require delivery; complete relevant knowledge updates even when there is no code to publish. Use for handoff, session closeout, checkpoint, save-state, or PR-and-merge requests. Summary-only requests return text. Do not use for deployment, release or product re-verification.
 ---
 
@@ -9,7 +9,7 @@ Use one closeout workflow for session learning, durable knowledge and optional r
 
 ## Scope and authority
 
-- An explicit `$handoff-pr-merge` invocation authorizes relevant skill/project-guidance updates, canonical wiki writeback and their existing validation/backup workflows. When the session has scoped repository work to deliver, it also authorizes commit, push, PR and merge after required checks and reviews pass.
+- An explicit `$session-closeout` invocation authorizes relevant skill/project-guidance updates, canonical wiki writeback and their existing validation/backup workflows. When the session has scoped repository work to deliver, it also authorizes commit, push, PR and merge after required checks and reviews pass.
 - Natural-language closeout or checkpoint requests select the matching scope; automatic skill selection does not grant a merge. A requested checkpoint authorizes its scoped commit/push; a guidance closeout follows the affected skills' and wikis' existing publication rules.
 - Honor narrower instructions such as summary-only, note-only, local-only, checkpoint-only, PR-only, draft, no merge, no wiki or no skill updates. A summary/resume-note request alone returns text without durable writes.
 - No source changes to deliver: skip source publication and still complete relevant guidance/wiki updates. Do not create an empty PR to make the skill name fit.
