@@ -116,7 +116,7 @@ whether the user wants the review persisted. If they decline or do not answer,
 stop at the chat output.
 
 If the user explicitly asks to persist the review, write the results into the
-canonical project files (per the `handoff-pr-merge` checkpoint convention):
+canonical project files (per the `session-closeout` checkpoint convention):
 
 1. **Update `plan.md`** — add or rewrite a `## CEO Review Notes` section in `plan.md`. Include:
    - Date of review and current commit (`git rev-parse --short HEAD`)

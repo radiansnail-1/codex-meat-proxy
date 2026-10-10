@@ -48,7 +48,7 @@ If any check is inconclusive, say the deploy is blocked or unverified. Do not al
    - Include exact next action, not generic advice.
 
 7. Update handoff after deploy work only when the user requests it or has already authorized a checkpoint. A useful resume note does not itself authorize commit/push.
-   - Use `handoff-pr-merge` in the requested closeout/checkpoint mode; a resume note does not imply a PR or merge.
+   - Use `session-closeout` in the requested closeout/checkpoint mode; a resume note does not imply a PR or merge.
    - Record deployed URLs, provider status, verification commands, and blocked state.
 
 For Vercel projects, read [Vercel projects](references/vercel.md) when the target requires those checks.

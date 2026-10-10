@@ -1,4 +1,0 @@
-interface:
-  display_name: "Session Closeout"
-  short_description: "Session learning, wiki updates and optional PR merge"
-  default_prompt: "Use $handoff-pr-merge to close this session: preserve resume state, update relevant skills and wiki knowledge, and publish or merge scoped repository work when applicable."
