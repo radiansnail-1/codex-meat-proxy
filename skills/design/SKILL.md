@@ -39,6 +39,13 @@ Run only the modes needed for the request; a clear implementation brief does not
 - Preserve useful existing brand and component conventions unless the brief explicitly calls for a new direction.
 - Treat mobile and desktop as first-class; specify how navigation, grids, controls, long text, and dense content adapt.
 
+## Motion and launch films
+
+- Identify the exact reference films and the user's preferred prior cut; compare their moving sequences, pacing and hierarchy before proposing a replacement. When the user points to a website hero, inspect the current implementation and distinguish it from stale previews.
+- Preserve accepted choreography while tightening the story. Carry a coherent object or motif through the sequence; transitions and sound cues should follow meaningful state changes, with enough time to read.
+- Review the buying story as well as the animation. A small transaction demo can undersell a broader consultancy brief; show prioritisation, delivery, measurement and expansion when that is the intended service. Treat example workflows and account ambitions as illustrative rather than verified outcomes or advertised package prices.
+- Compare the rendered revision with the preferred cut and references, including the joins and closing mark. Respect the requested voiceover/sound direction, use original or authorised audio, and verify the exported film rather than relying only on stills.
+
 ## Output shapes
 
 - Ideation: named directions with layout, hierarchy, palette, type, component behavior, responsive behavior, strongest use case, and tradeoff.
