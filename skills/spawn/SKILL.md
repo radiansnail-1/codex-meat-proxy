@@ -32,6 +32,7 @@ Give each agent:
 - the files or responsibility it owns, or a read-only boundary;
 - the user constraints and context it cannot otherwise access;
 - the evidence required: patch and checks, reproduction, source-backed findings, or concrete counterexample;
+- the stop condition, with a time budget for long evidence capture such as screenshot sweeps or repeated full test runs;
 - a concise return contract covering result, changed files, verification, and unresolved gaps.
 
 Tell editing workers they share the workspace, must preserve others' changes, and must adapt to concurrent edits. Never give multiple workers overlapping ownership accidentally.
@@ -44,7 +45,7 @@ Continue local work that does not duplicate agent ownership. Inspect results bef
 
 For difficult research, track distinct hypotheses and redirect converging or stalled lanes toward new evidence. Reopen a failed approach only when the mechanism or evidence changes. Do not create agents merely to satisfy a quota or serialize explorer/worker/verifier handoffs when a single owner is faster.
 
-Wait when a result is on the critical path, use available bounded wait tools, and stop or release agents when their work is no longer useful. Respect the user's time/cost limits and task stopping condition. Never present a pending check as complete.
+Wait when a result is on the critical path, use available bounded wait tools, and stop or release agents when their work is no longer useful. Once the change and its required checks are done, end further re-verification loops and integrate the result rather than waiting on them. Respect the user's time/cost limits and task stopping condition. Never present a pending check as complete.
 
 ## Report
 
