@@ -84,6 +84,7 @@ These are separate approvals unless the user's request explicitly includes them:
 - upload to App Store Connect/TestFlight;
 - attach build or change metadata/media/pricing;
 - submit for review;
+- request an expedited review;
 - release to the public App Store;
 - paid Apple Ads changes.
 
@@ -97,6 +98,7 @@ After an approved mutation:
 - verify app, version/build, locale/territory, changed fields, and state;
 - for uploads, wait for Apple processing and confirm the build appears;
 - for submissions, confirm the review submission/state;
+- for expedited review, submit the version first; Apple's expedite form (developer.apple.com/contact/app-store/?topic=expedite) needs a user-controlled Apple Developer web sign-in and, as of October 2026, asks only for the app and platform with no reason field, so put factual bug details in the App Review notes and keep the confirmation page text as evidence (no reference number is shown);
 - for releases, confirm App Store Connect's durable released state separately from storefront propagation.
 
 For browser-only actions, keep credentials, passkeys, MFA, CAPTCHA, agreements, and payment confirmation user-controlled.
