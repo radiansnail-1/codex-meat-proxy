@@ -13,7 +13,8 @@ Use one closeout workflow for session learning, durable knowledge and optional r
 - Natural-language closeout or checkpoint requests select the matching scope; automatic skill selection does not grant a merge. A requested checkpoint authorizes its scoped commit/push; a guidance closeout follows the affected skills' and wikis' existing publication rules.
 - Honor narrower instructions such as summary-only, note-only, local-only, checkpoint-only, PR-only, draft, no merge, no wiki or no skill updates. A summary/resume-note request alone returns text without durable writes.
 - No source changes to deliver: skip source publication and still complete relevant guidance/wiki updates. Do not create an empty PR to make the skill name fit.
-- Deployment, release, uploads, live-service changes, spending, messages to others, sharing changes and new schedules retain their own authorization boundaries. Never force-push or bypass failed checks or branch protection.
+- Create necessary folders and supporting files for authorized closeout writeback within the existing workspace or canonical knowledge layout without another confirmation. Preserve file IDs and access, keep one owning record per topic, and leave unrelated content in place.
+- Deployment, release, unrelated uploads, live-service changes, spending, messages to others, sharing changes and new schedules retain their own authorization boundaries. Never force-push or bypass failed checks or branch protection.
 
 ## Review the session
 
