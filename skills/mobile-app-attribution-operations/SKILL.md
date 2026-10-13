@@ -106,7 +106,9 @@ After both SDKs are configured:
 5. map trial, purchase, renewal, refund/cancellation, expiration, and billing issue;
 6. remove duplicate client-side monetary revenue logging.
 
-A privacy-safe client event may record purchase outcome for UX analysis, but one server-side source owns money.
+A privacy-safe client event may record purchase outcome for UX analysis, but one server-side source owns money. Check complete routes per destination: direct RevenueCat-to-network delivery plus RevenueCat-to-MMP-to-network forwarding can duplicate the same purchase even when RevenueCat owns both routes. Retain one monetary route to each destination.
+
+Recheck the current RevenueCat customer across asynchronous identifier writes and confirm the attribute sync succeeds before claiming the purchase bridge is ready. Failed syncs must remain retryable. Missing or restricted acquisition data stays unknown; it does not establish organic acquisition.
 
 ## ATT and aggregate attribution
 

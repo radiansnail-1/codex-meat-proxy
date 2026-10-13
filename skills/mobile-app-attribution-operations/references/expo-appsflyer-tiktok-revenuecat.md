@@ -54,6 +54,15 @@ RevenueCat can send trial, purchase, renewal, refund, expiration, and billing-is
 
 Reference: <https://www.revenuecat.com/docs/integrations/attribution/appsflyer>
 
+### Final campaign values and Meta restrictions
+
+AppsFlyer SDK conversion callbacks may arrive before attribution is final. Do not persist provisional labels into RevenueCat's write-once campaign fields or fill blanks with Organic, Unknown or No Consent. Use permitted settled reports or an authenticated final-data feed; verify access, allowed fields/recipients and customer binding before implementing it. See [AppsFlyer's conversion-data limitations](https://support.appsflyer.com/hc/en-us/articles/4410481069969-Get-conversion-data-using-AppsFlyer-SDK-Overview).
+
+Meta partner activation, Advanced data sharing, Advanced Matching and AMM agreement acceptance are separate settings and gates. Read the current [Meta integration requirements](https://support.appsflyer.com/hc/en-us/articles/207033826-Meta-Ads-integration-setup) and exact agreement before using its data. Acceptance does not retroactively unrestrict old installs or authorise exporting restricted measurement data to RevenueCat/PostHog user profiles. Review restrictions per recipient instead of assuming every campaign field can be forwarded.
+
+Check the direct RevenueCat-to-Meta route against AppsFlyer-to-Meta purchase mappings before enabling the MMP. A received HTTP 200 or event count proves ingestion, not campaign matching or one-postback delivery. Prove those separately through one controlled campaign/install/purchase identity.
+
+
 ## TikTok dashboard sequence
 
 1. Select the exact app event source.
