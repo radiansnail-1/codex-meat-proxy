@@ -154,6 +154,13 @@ Gate the selected optimization goal on its own evidence. Do not optimize to purc
 
 Use `references/expo-appsflyer-tiktok-revenuecat.md` for the current Expo/React Native pattern, and re-check its first-party links before implementation.
 
+## Campaign performance review
+
+- If the user requests a pause, publish and verify Off on the exact campaign before analyzing results. Do not resume it while debugging without authorization.
+- Reconcile ad-network spend/results, the MMP's normal and aggregate attribution views, and receipt-based subscription revenue separately. Confirm the selected app/campaign, currency, time zone and each reporting window; shared dashboards can retain another app's filter.
+- Blank install results are not verified zero installs. SKAN cutoffs can lag; do not add normal and aggregate counts without verified deduplication. Label cost per reported install by its measurement basis rather than presenting it as complete acquisition cost.
+- Missing postback copies, null conversion values and volume/rate diagnostics are observations, not a proven payload or source-code defect. Check the provider's current diagnostic definition before changing consent flags, event parameters or the SDK.
+
 ## Campaign launch and handoff
 
 - Verify the account currency, daily-budget average and any displayed daily/weekly maximums. A daily average is not a hard daily cap.
