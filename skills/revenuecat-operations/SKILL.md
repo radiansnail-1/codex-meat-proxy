@@ -107,6 +107,10 @@ For AppsFlyer or another MMP:
 
 Do not print or persist raw device IDs, app user IDs, transaction IDs, keys, or customer identifiers in chat or skills.
 
+For server-side analytics, verify opt-out behavior separately from identity matching. RevenueCat's [PostHog integration](https://www.revenuecat.com/docs/integrations/third-party-integrations/posthog) falls back to the RevenueCat app user ID when `$posthogUserId` is absent; clearing that attribute does not stop forwarding. Establish an enforceable opt-out before enabling it. Keep server lifecycle events distinct from client purchase-flow events, and reconcile currency and gross/net treatment before summing revenue.
+
+An authorized legacy-identifier cleanup needs a complete paginated census, a fresh consent/attribute read before each scoped change, and independent readback. Removing the matching identifier is different from a partner-sharing filter. Report the result as point-in-time: older clients can repopulate attributes, and previously dispatched events are unaffected.
+
 ## Web purchase and redemption
 
 For Web Purchase Links, Redemption Links, callback URL schemes, or web-to-app onboarding, read [references/web-purchase-redemption.md](references/web-purchase-redemption.md). Treat the browser checkout, RevenueCat web app, native app, handoff service, and store app as distinct identities until verified. A successful web checkout or configured redirect does not prove that a fresh physical device redeemed the entitlement.
