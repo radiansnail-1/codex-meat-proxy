@@ -59,4 +59,6 @@ A source-publication blocker does not block independent skill or knowledge updat
 
 ## Report the outcome
 
-Lead with what was completed. Include the relevant project resume state, skills/guidance and wiki pages updated, validation, source/public-skill PR states, merge/backup evidence, preserved unrelated changes and concrete blockers. State why source publication or a writeback destination was skipped when relevant. A local edit, a draft PR, a saved plugin release and merged main are different states.
+Start every closeout reply with a concise, plain-language summary of the session: what was completed, the decisions or preferences agreed, the current state, and any unfinished work or next step. Include this summary in the final chat even when it is also saved in a file or wiki; the user should not need to open links or read progress updates to understand the outcome.
+
+Then briefly report relevant skills/guidance and wiki updates, validation, source/public-skill publication state and concrete blockers. Mention preserved unrelated work or skipped destinations only when material. A local edit, a draft PR, a saved plugin release and merged main are different states.
