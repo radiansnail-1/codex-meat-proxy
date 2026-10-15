@@ -1,9 +1,10 @@
 # Changelog
 
-## 2026-09-07 — Paired skill maintenance
+## 2026-10-15 — Timed-motion QA
 
-- Added contributor and agent guidance for carrying reusable local skill updates into public variants.
-- Clarified installation behavior and validator coverage in the README.
-- Prepared compact resume state using existing validation evidence; no product checks rerun during handoff.
+- Added event-based timing diagnosis and playback checks for motion/app demos.
+- Kept picture, sound and export verification together, preserving requested pauses and easing.
+- Reconciled the reusable guidance across installed variants while retaining platform-specific metadata.
+- Documentation-only checkpoint; product evidence is reused and no product checks are rerun.
 
-**Last updated:** 2026-09-07
+**Last updated:** 2026-10-15
