@@ -45,6 +45,13 @@ For premium-experience critiques, also use [premium audit](references/premium-au
 - Do not auto-commit design fixes unless explicitly asked.
 - For substantial UI changes, verify the affected route and adjacent critical states at desktop and mobile sizes when practical.
 
+## Timed motion and app demos
+
+- Anchor a timing complaint to the visible trigger and first legible outcome (for example, Send → attachment). Measure that interval before trimming; shortening adjacent setup can leave the reported wait unchanged.
+- Review the affected transition in playback as well as stills. Follow the same app/content through handoffs, check stacking order and focus bounds, and distinguish actual state changes from moving screenshot planes.
+- Retime picture, sound effects and music cues together. Preserve requested pauses and easing durations, then verify the delivered export matches the current timeline; a shorter source timeline alone is not a shorter delivered cut.
+- In a staged app demo, keep the request, pending state and result causally clear. Reveal a result once unless repetition serves the brief; use native app content when realistic screenshots or attachments are requested.
+
 ## Output
 
 Lead with the highest-impact observed issues or fixes. If no code changed, give a prioritized punch list with evidence and residual risk. If code changed, report files changed, verification performed, skipped checks, and remaining visual risk. Separate observation from preference and hypothesis.
