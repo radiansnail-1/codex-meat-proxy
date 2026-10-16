@@ -9,7 +9,7 @@ Trace the actual failing path before fixing it. A request to explain a problem c
 
 ## Establish evidence
 
-1. Confirm the authoritative checkout, applicable repository instructions, current Git state, and intended runtime/build. Preserve unrelated work. Generated trees, archives, installed apps, and source checkouts may differ.
+1. Confirm the authoritative checkout, applicable repository instructions, current Git state, and intended runtime/build. Preserve unrelated work. Generated trees, archives, installed apps, and source checkouts may differ. For historical or release claims, inspect each cited path at an immutable commit; a dirty or divergent checkout and tests run there do not verify that version.
 2. Read the symptoms and relevant source. Identify the smallest reproduction, focused test, safe probe, or captured evidence that distinguishes correct from failing behavior. Run it before editing when feasible; if reproduction is unavailable, state the limitation and use the strongest available evidence.
 3. Trace callers, state owners, data flow, and recent relevant changes. Regressions can originate in source, dependencies, configuration, data, or external services; do not assume the cause must be in the local diff.
 4. For integrations, distinguish configuration, built artifact, initialization, current run, outbound request, provider receipt, and downstream state. Initialization logs, historical counters, and an HTTP success alone do not prove the requested end-to-end outcome.
