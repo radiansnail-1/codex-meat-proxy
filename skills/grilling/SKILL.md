@@ -18,8 +18,8 @@ Interview the user about blind spots, edge cases, tradeoffs, scope, failure mode
 1. **Inspect context first.** Read the relevant plan, repository instructions, source files, prior decisions, and evidence before asking questions.
 2. **Remove researchable questions.** Answer questions about the codebase, external facts, or existing state with tools. Batch independent lookups or delegate them when useful; do not make the user supply facts you can discover.
 3. **Build the question tree.** Separate independent branches and identify the earliest unresolved question on each branch.
-4. **Ask one frontier question.** Ask the highest-value unresolved question whose prerequisites are settled, include a concise recommended choice, and wait for the user's response. Ask the whole frontier as a numbered round only when the user explicitly requests batching.
-5. **Update and prune.** Incorporate the answer, close dead branches, expose new dependencies, and recompute the frontier.
+4. **Ask a focused round.** Default to 5–10 numbered, high-value unresolved questions whose prerequisites are settled. Include concise recommended choices and wait for the user's answers before the next round. Ask fewer when fewer material questions remain, one answer would reshape the rest, or the user requests a shorter round; do not pad the count.
+5. **Update and prune.** Incorporate the answers, close dead branches, expose new dependencies, and recompute the frontier.
 6. **Repeat until done.** Stop only when the user confirms completion or every material branch is resolved enough to act.
 
 ## What to push on
@@ -36,6 +36,7 @@ Interview the user about blind spots, edge cases, tradeoffs, scope, failure mode
 ## Question quality
 
 - Ask concrete questions whose answers would change implementation or acceptance criteria.
+- Keep questions in the same round independent; defer a question if it depends on another answer in that round.
 - Explain a non-obvious tradeoff briefly, but do not preload the answer.
 - Avoid generic questionnaires, repeated questions, and questions already answered by context.
 - If the user is uncertain, offer two or three materially distinct choices with consequences.
