@@ -1,6 +1,6 @@
 ---
 name: session-closeout
-description: Close a work session by preserving resume state, reviewing how the user worked, and updating relevant skills, project guidance and canonical wiki knowledge. Publish a scoped checkpoint or GitHub PR and merge when the request and session require delivery; complete relevant knowledge updates even when there is no code to publish. Use for handoff, session closeout, checkpoint, save-state, or PR-and-merge requests. Summary-only requests return text. Do not use for deployment, release or product re-verification.
+description: Close a work session by preserving resume state, reviewing how the user worked, and updating relevant skills, project guidance and canonical wiki knowledge. Publish a scoped checkpoint or GitHub PR and merge when the request and session require delivery; complete relevant knowledge updates and clean up verified redundant local checkouts and disposable artifacts even when there is no code to publish. Use for handoff, session closeout, checkpoint, save-state, or PR-and-merge requests. Summary-only requests return text. Do not use for deployment, release or product re-verification.
 ---
 
 # Session Closeout, Checkpoint and Publication
@@ -57,8 +57,19 @@ Always finish the material writeback selected by the session review, including w
 
 A source-publication blocker does not block independent skill or knowledge updates. If wiki/skill access or reconciliation fails, preserve the prepared change and report that portion as pending; never claim completion or bypass its safeguards.
 
+## Clean up redundant local copies
+
+A full closeout includes scoped disk cleanup after the required preservation and delivery steps. Remove verified redundant checkouts and disposable session clutter without another confirmation. Summary-only, note-only, checkpoint-only and no-cleanup requests skip this step. A blocked publication leaves any checkout needed to resume in place.
+
+- Inspect the session workspace and known sibling checkouts for the same project; avoid an unrelated whole-machine sweep. Keep the primary checkout, active chat/process workspaces, and pinned or shared worktrees.
+- Before retiring a checkout, identify the retained canonical path and verify its work is preserved there or on the intended remote. Inspect staged/unstaged changes, untracked and ignored files, local stashes, and local refs/commits absent from the retained history. Directory names, matching remotes, clean Git status and a merged PR alone do not prove redundancy; squash/rebase merges need content-equivalence checks for commits being retired.
+- Preserve unique source, credentials/configuration, local databases, signing material, user assets and required evidence. Ignored files are not automatically disposable. If preservation or current use is uncertain, keep that candidate and report the specific reason; continue with safe cleanup elsewhere.
+- Use the host's archive tool for managed worktrees when available, preserving needed ignored files separately first. For ordinary Git worktrees, use non-forced `git worktree remove`; remove standalone duplicate directories only after the same preservation checks. Do not delete local refs or stashes as a cleanup shortcut.
+- Clear known reproducible build outputs, obsolete dependency folders, package-download caches and task-created scratch files only when no active process needs them and retained configuration/lockfiles can recreate them. Keep deliverables, required screenshots/logs and the only copy of evidence. Use targeted paths and supported cleanup commands; avoid blanket cache wipes, `git clean -fdx` and forced worktree removal.
+- Point existing resume state at the retained checkout before retiring a path. Verify removals and the retained copy, then report what was removed and measured free-space change when available. Account for Trash, hardlinks and APFS clones; moving files within the same disk does not reclaim their space. Do not create another cleanup report or redundant archive just to record the cleanup.
+
 ## Report the outcome
 
 Start every closeout reply with a concise, plain-language summary of the session: what was completed, the decisions or preferences agreed, the current state, and any unfinished work or next step. Include this summary in the final chat even when it is also saved in a file or wiki; the user should not need to open links or read progress updates to understand the outcome.
 
-Then briefly report relevant skills/guidance and wiki updates, validation, source/public-skill publication state and concrete blockers. Mention preserved unrelated work or skipped destinations only when material. A local edit, a draft PR, a saved plugin release and merged main are different states.
+Then briefly report relevant skills/guidance and wiki updates, validation, source/public-skill publication state, cleanup results and concrete blockers. Mention preserved unrelated work or skipped destinations only when material. A local edit, a draft PR, a saved plugin release and merged main are different states.

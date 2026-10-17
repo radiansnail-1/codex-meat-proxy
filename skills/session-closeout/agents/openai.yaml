@@ -1,4 +1,4 @@
 interface:
   display_name: "Session Closeout"
-  short_description: "Session learning, wiki updates and optional PR merge"
-  default_prompt: "Use $session-closeout to close this session: summarize the outcome and next steps, preserve resume state, update relevant skills and wiki knowledge, and publish or merge scoped repository work when applicable."
+  short_description: "Session closeout, knowledge updates and workspace cleanup"
+  default_prompt: "Use $session-closeout to close this session: summarize the outcome and next steps, preserve resume state, update relevant skills and wiki knowledge, publish or merge scoped repository work when applicable, then remove verified redundant checkouts and disposable artifacts."
