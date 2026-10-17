@@ -49,4 +49,4 @@ Once the final graph pass starts, keep transient push/CI/merge timestamps in Git
 
 ## Preservation
 
-Do not delete source, evidence, screenshots, logs, ignored files or temporary artifacts during a normal checkpoint. Do not install dependencies or bootstrap tools merely to hand off. Preserve unrelated dirty state and existing stashes; never amend a source/checkpoint commit after a tracked graph has been generated from it.
+A checkpoint-only request preserves local files and checkouts. During a full closeout, complete the checkpoint and required delivery first, then follow [the scoped cleanup rules](../SKILL.md#clean-up-redundant-local-copies). Preserve unique source, required evidence, unrelated dirty state and existing stashes. Do not install dependencies or bootstrap tools merely to hand off; never amend a source/checkpoint commit after a tracked graph has been generated from it.
