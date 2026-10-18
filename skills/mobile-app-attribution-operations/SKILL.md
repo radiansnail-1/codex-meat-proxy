@@ -132,6 +132,10 @@ Verify the exact:
 
 Separate sandbox/debug receipts from production event eligibility. A received test purchase proves that test route, not that Purchase is selectable for production optimization; do not promise that one real purchase will unlock it.
 
+Eligibility is time-sensitive and specific to an event/objective pair. Before launch, re-read that exact live eligibility row and diagnostic; an older eligible snapshot, a saved event label or text typed into a picker does not prove current eligibility. Distinguish a selectable option from a disabled result, then verify publication succeeds for the ad set and ads before reporting that the goal can run.
+
+Keep delivery, acceptance, qualification and attribution counts separate. A server integration's Sent status or HTTP200 does not establish how many events the ad platform processed, deduplicated or qualified for optimisation. Compare matched time zones, delivery/event dates, event types, unique events and response acceptance fields where available. A count mismatch alone does not prove lost events or justify changing consent flags, adding duplicate SDK events or inventing a volume threshold.
+
 Code completion does not authorize provider configuration, campaign launch, or spend.
 
 ## End-to-end proof

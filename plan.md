@@ -1,24 +1,24 @@
 # Plan
 
 **Goal:** Keep reusable skill guidance aligned between installations and this public repository.
-**Status:** Timed-motion QA guidance is implemented and instruction validation passed; scoped publication remains.
-**Next action:** Publish the scoped draft PR, then merge after applicable checks/reviews pass.
+**Status:** Current-event eligibility and delivery-count guidance is implemented; instruction validation passed, scoped publication pending.
+**Next action:** Publish the draft PR, then merge after applicable checks and reviews pass.
 
 ## Resume state
 
-- Branch: codex/motion-film-qa-20261015, based on current origin/main.
-- Scope: design-qa instructions plus this compact checkpoint; no runtime or product source changes.
-- Installed counterparts: Codex, its shared Claude link, and the independently adapted Hermes variant.
-- Preserve platform metadata, public portability and private adaptations when reconciling future updates.
-- Validation: installed skill metadata, adapted Hermes metadata, relative references, the public skill set and whitespace/scope checks passed.
-- Existing product evidence belongs to the originating project; this repository contains only reusable review guidance.
+- Branch: codex/meta-eligibility-closeout-20261019, based on current origin/main.
+- Scope: mobile-app-attribution-operations plus this compact checkpoint; no runtime or product source changes.
+- Reconciled the reusable change in the installed Codex skill and existing public counterpart. No installed Claude or Hermes counterpart was found; none was added.
+- A saved goal or earlier eligible row does not prove a campaign can publish. Recheck the exact event/objective and verify publication success.
+- Sent, HTTP success, accepted, deduplicated, qualifying and attributed counts remain distinct. Compare matched windows before diagnosing a defect.
+- Validation: installed skill and all 23 public skills passed metadata checks; changed references and whitespace/scope checks passed.
+- No executable helper changed. No product tests, builds, SDK changes or live-provider probes were rerun for closeout; future agent behavior remains unverified.
 - No tracked Graphify graph or graph-refresh requirement applies to this documentation update.
-- No product tests should be rerun for this closeout. Instruction validation does not prove future agent behavior.
-- Resume: `git fetch origin --prune`, then inspect branch and PR state before continuing publication.
+- Resume: fetch origin, then inspect the matching PR and final head before continuing publication.
 
 ## Pending
 
 - Complete the authorized PR/merge; GitHub is authoritative for the final merged state.
-- Future shared skill changes continue to reconcile installed variants with the public counterpart.
+- Future shared skill changes must preserve public portability and private/platform adaptations.
 
-**Last updated:** 2026-10-15
+**Last updated:** 2026-10-19
