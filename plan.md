@@ -1,8 +1,8 @@
 # Plan
 
 **Goal:** Keep reusable skill guidance aligned between installations and this public repository.
-**Status:** Current-event eligibility and delivery-count guidance is implemented; instruction validation passed, scoped publication pending.
-**Next action:** Publish the draft PR, then merge after applicable checks and reviews pass.
+**Status:** Guidance is implemented and validated in [PR #21](https://github.com/radiansnail-1/codex-meat-proxy/pull/21). The pre-merge readback is mergeable/CLEAN, with no checks or review decision reported.
+**Next action:** Push this PR receipt, recheck the final head, then merge under the standing skill-update authorization if no check or review gate blocks it.
 
 ## Resume state
 
@@ -18,7 +18,7 @@
 
 ## Pending
 
-- Complete the authorized PR/merge; GitHub is authoritative for the final merged state.
+- Complete PR #21 publication; GitHub is authoritative for the final merged state.
 - Future shared skill changes must preserve public portability and private/platform adaptations.
 
 **Last updated:** 2026-10-19

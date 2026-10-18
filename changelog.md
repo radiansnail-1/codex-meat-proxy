@@ -5,6 +5,7 @@
 - Require the exact current event/objective eligibility check and successful ad-set/ad publication before claiming a conversion goal can run.
 - Separate server delivery and HTTP success from processed, deduplicated, qualifying and attributed counts; preserve uncertainty when aggregate counts differ.
 - Reconciled installed/public guidance and validated instructions. No executable code or product verification changed.
+- [PR #21](https://github.com/radiansnail-1/codex-meat-proxy/pull/21) records this scope; final-head GitHub gates govern the authorized merge.
 
 ## 2026-10-15 — Timed-motion QA
 
