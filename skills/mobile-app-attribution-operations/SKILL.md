@@ -136,6 +136,10 @@ Eligibility is time-sensitive and specific to an event/objective pair. Before la
 
 Keep delivery, acceptance, qualification and attribution counts separate. A server integration's Sent status or HTTP200 does not establish how many events the ad platform processed, deduplicated or qualified for optimisation. Compare matched time zones, delivery/event dates, event types, unique events and response acceptance fields where available. A count mismatch alone does not prove lost events or justify changing consent flags, adding duplicate SDK events or inventing a volume threshold.
 
+When the request is to enable measurement, implemented-but-disabled is incomplete. Before submitting the release, verify the non-secret activation markers and fixed cutover in the signed artifact against the published provider decoder. A passing build or a declined device test does not establish activation. If activation remains blocked, explain what is inactive and why before proceeding with any separately authorized partial release.
+
+Apple aggregate conversion updates and Meta AEM eligibility are separate gates. Read the exact eligibility diagnostic; do not promise that a SKAN mapping change clears an ATE-volume requirement or alter consent flags to make it pass.
+
 Code completion does not authorize provider configuration, campaign launch, or spend.
 
 ## End-to-end proof
