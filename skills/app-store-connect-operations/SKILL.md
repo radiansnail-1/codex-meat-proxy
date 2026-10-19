@@ -4,7 +4,7 @@ description: "App Store Connect build, metadata, pricing, screenshot, review, Te
 license: private
 metadata:
   author: "Codex Meat Proxy"
-  version: "1.0.0"
+  version: "1.0.1"
   tags: [app-store-connect, ios, testflight, release, metadata, screenshots]
   related_skills: [deploy, qa, ios-debugger-agent, revenuecat-operations, mobile-app-attribution-operations]
 ---
@@ -110,6 +110,9 @@ For browser-only actions, keep credentials, passkeys, MFA, CAPTCHA, agreements, 
 - Verify screenshot display type, dimensions, locale, count, checksums, and final order.
 - Screenshot deletion and preview deletion are irreversible; require explicit approval for exact IDs/files.
 - Label simulator/static renders separately from source-app and physical-device evidence.
+- Asset Library approval, placement assignment and public appearance are separate states. Images used on an already approved version must be APPROVED. After a delayed approval, re-read the current released version and its locale IDs; verify the image relationship, placement type and state in each locale while preserving existing screenshots. Check inherited artwork on a newer version rather than assuming it carried forward.
+- A running product-page optimization experiment can block artwork assignment. Ending that experiment needs authorization for the stop; once blockers clear, reuse existing explicit approval for the scoped assignment. A numerically leading treatment without adequate confidence is not a winner.
+- For ASO reviews, refresh stale keyword data and label public search API positions as storefront-specific proxies, with the baseline date. App Store Search acquisition includes Apple Ads; do not report it as pure organic traffic or attribute a change to artwork without supporting evidence.
 
 ## IAP, subscriptions, and pricing
 
