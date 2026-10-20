@@ -23,7 +23,7 @@ Model overrides may require isolated or bounded history. For `collaboration.spaw
 
 Do not launch a separate CLI just to bypass a native tool limitation. Use a CLI lane only when the requested workflow requires it and its execution scope, model, permissions, and output capture are understood. If delegation is unavailable, continue locally and disclose the limitation.
 
-Account for measured machine pressure when lanes launch browsers, compilers, simulators, or other local processes. Do not assume each remote reasoning agent consumes a fixed amount of local RAM.
+Account for measured machine pressure when lanes launch browsers, compilers, simulators, or other local processes. Do not assume each remote reasoning agent consumes a fixed amount of local RAM. Native app builds also consume disk: serialize them across lanes with one lock, a shared derived-data path and a free-space check before each build, because parallel Xcode builds have filled the disk and crashed every lane.
 
 ## Worker packet
 
