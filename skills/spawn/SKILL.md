@@ -43,6 +43,8 @@ For independent evaluation, provide the task, raw artifact, and acceptance crite
 
 Continue local work that does not duplicate agent ownership. Inspect results before trusting them, reconcile disagreements against artifacts, and verify the combined result. A child saying a test passed is useful evidence to inspect, not a substitute for the actual result when available.
 
+When parallel workers share a repository with tracked generated artifacts or commit hooks that regenerate them (dependency graphs, bundles, lockfiles), have workers skip regeneration; regenerate and validate once after integration. Compare check runtimes with the base: a multi-fold slowdown is a product performance signal to profile before integrating, not test noise.
+
 For difficult research, track distinct hypotheses and redirect converging or stalled lanes toward new evidence. Reopen a failed approach only when the mechanism or evidence changes. Do not create agents merely to satisfy a quota or serialize explorer/worker/verifier handoffs when a single owner is faster.
 
 Wait when a result is on the critical path, use available bounded wait tools, and stop or release agents when their work is no longer useful. Once the change and its required checks are done, end further re-verification loops and integrate the result rather than waiting on them. Respect the user's time/cost limits and task stopping condition. Never present a pending check as complete.
