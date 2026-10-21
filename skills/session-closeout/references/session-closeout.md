@@ -35,7 +35,7 @@ Use the selected scope's current adapter, live entry instructions and owning pag
 
 Reconcile only supported decisions/corrections, preserve uncertainty and leave unconfirmed owners/dates unset. Private/company/client scopes remain separate. A manual review does not authorize a schedule or new sharing.
 
-Verify canonical readback and required privacy/focused checks, complete the scope's reviewed backup, seal agreement only after both copies match, then refresh only that scope's documented index. Git recovery and generated search results do not supersede the canonical page.
+Google Drive is the only canonical wiki store; GitHub wiki backups are retired. Verify the Drive readback and required privacy/focused checks, then refresh only that scope's documented index. Do not run Git snapshots, commits, PRs, merges or cross-copy agreement for wiki work. Old Git copies and generated search results are history, never a substitute for the live Drive page.
 
 ## Finish the authorized scope
 
