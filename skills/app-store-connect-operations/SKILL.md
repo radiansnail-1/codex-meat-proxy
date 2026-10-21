@@ -108,6 +108,8 @@ For browser-only actions, keep credentials, passkeys, MFA, CAPTCHA, agreements, 
 - Preserve locale sets across app-info and version metadata when required.
 - Validate keyword length and comma-separated formatting.
 - Verify screenshot display type, dimensions, locale, count, checksums, and final order.
+- Re-read the live version state before planning a media upload. Screenshots and previews are locked while a version is Waiting for Review or In Review; an upload request alone does not authorize withdrawing and resubmitting that version. Prepare the exact replacement files before asking about a review interruption.
+- Judge screenshot sharpness at the final export dimensions as well as gallery size. Compare the unchanged current UI source with the rendered image before blaming source quality; downscaling and raster rotation can soften text. Preserve native values and keep source/demo notes outside the artwork.
 - Screenshot deletion and preview deletion are irreversible; require explicit approval for exact IDs/files.
 - Label simulator/static renders separately from source-app and physical-device evidence.
 - Asset Library approval, placement assignment and public appearance are separate states. Images used on an already approved version must be APPROVED. After a delayed approval, re-read the current released version and its locale IDs; verify the image relationship, placement type and state in each locale while preserving existing screenshots. Check inherited artwork on a newer version rather than assuming it carried forward.
