@@ -87,6 +87,15 @@ If the update command succeeds but the integrity check fails:
 After supported recovery, rerun the repository-supported publication path
 normally. Required local recovery does not require a separate permission pause.
 
+A union-style graph merge driver can resurrect document nodes that one side
+deliberately replaced. Merging the default branch into a branch with
+re-extracted documents can then trip the shrink guard on the next update. Do not
+force the guard. Rebuild from the default branch's valid graph, and replace only
+the branch's re-extracted source files using Graphify's own merge (`build_merge`)
+with whole-graph deduplication disabled; the default deduplication collapses
+unrelated same-label nodes. Confirm that no other node was lost or added, then
+run the repository's normal update and check.
+
 Do not hand-edit `graphify-out/graph.json`, discard semantic markers, or invent
 ad hoc graph-building code merely to obtain a passing exit code. If the tracked
 base graph is already invalid on the remote default branch, distinguish that
