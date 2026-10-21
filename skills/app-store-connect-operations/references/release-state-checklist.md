@@ -6,6 +6,8 @@
 - [ ] App Store Connect app ID, bundle ID, version, and build recorded.
 - [ ] User's visual target, when any, matched against the candidate build's artwork/screenshots.
 - [ ] Current state read from App Store Connect rather than inferred from the public listing.
+- [ ] For media changes, the version is editable; withdrawing/resubmitting an active review is separately authorized when needed.
+- [ ] Exact screenshot files, final-size appearance, target locale/display type, retained assets and intended order are recorded.
 - [ ] Release mode understood: upload, TestFlight, submit, release now, schedule, pre-order, territory/date change, or metadata-only.
 - [ ] The exact stage is authorized; adjacent stages remain blocked unless explicitly included.
 - [ ] User-controlled sign-in, passkey, MFA, CAPTCHA, agreements, and payment steps remain with the user.
