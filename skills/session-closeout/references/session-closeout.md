@@ -8,12 +8,19 @@ Use evidence already present in the conversation: explicit corrections, accepted
 
 A durable lesson changes a future decision. Keep one-off task facts in their owning record. Prefer a correction to an existing skill over another skill or a universal checklist. Do not turn an unaccepted suggestion, tentative proposal or one ambiguous example into a permanent user preference.
 
+## Prefer enforceable lessons
+
+For a recurring failure that can be checked mechanically, prefer an existing test, lint rule, generator, or runtime guard over another prose instruction. Reuse the session's evidence that the check rejects the bad case and accepts the intended behavior. Keep judgment-based lessons in the owning skill, with a concrete failure example when it clarifies the decision.
+
+If building or proving the guard needs product work beyond closeout, record that candidate in the existing next-action record under the task's authorization. Do not start fresh product testing, duplicate the proposed rule across documents, or describe a recorded suggestion as an enforced safeguard.
+
 ## Put each delta where it belongs
 
 | Information | Owning location |
 |---|---|
 | Unfinished work and resume state | Existing project plan or task record |
 | Project-specific convention or root cause | Existing project guidance/learnings |
+| Mechanically checkable recurring constraint | Existing test, lint, generator, or runtime guard; pending work stays in the next-action record |
 | Reusable workflow correction or accepted working preference | The affected skill and its resources |
 | Current company, product or personal knowledge | The selected canonical wiki's owning page |
 | Historical evidence or meeting findings | Dated source/summary beside the subject/work |

@@ -68,6 +68,12 @@ Use one primary metric whenever possible; use guardrails rather than averaging u
 
 Prefer small, reversible experiments. For vague code optimization, start with safe simplification, then user-visible latency. Prove removals with search, types, tests, route coverage, runtime evidence, and checks for dynamic/config-driven usage; never delete code merely because it looks unused.
 
+## Keep experiments trustworthy
+
+- Check what the measurement actually includes before accepting a gain: the workload, artifact/version, environment, and completed work must be comparable. Rule out early exits, skipped checks, changed scoring, or cache effects that bypass the intended work; distinguish meaningful reuse from omitted work.
+- For repeated mechanical edits or checks, prefer an existing helper or the smallest safe-to-rerun script over hand-applying the same operation or dispatching more workers. Check one representative result before scaling. A couple of obvious edits do not need a new framework.
+- For skill or prompt changes, compare representative tasks, including intended invocations and adjacent requests that should not trigger the workflow. Judge completed outcomes, regressions, time/cost, and human interventions; output or PR volume alone is not success. Describe unrun comparisons as unverified.
+
 ## Reference mode
 
 Select a concrete reference artifact, implementation, golden output, reproducible suite, measurable target, or weighted rubric. The reference is a judgment bar, not permission to imitate protected code, art, text, branding, or private data.
@@ -111,7 +117,7 @@ Critic surface by artifact: running pixels and real viewports for UI; tests/trac
 ## Loop
 
 1. **Baseline.** Run the benchmark or real inspection path exactly as written. Record skipped checks and why.
-2. **Generate candidates.** Rank small hypotheses by expected gain, confidence, blast radius, verification cost, and rollback path. Do not repeat a failed idea without new evidence.
+2. **Generate candidates.** Rank small hypotheses by expected gain, confidence, blast radius, verification cost, and rollback path. Do not repeat a failed idea without new evidence. When different fixes fail the same gate, test their shared assumption or the evaluator before trying another patch.
 3. **One experiment.** Implement one coherent, attributable change inside the assigned scope.
 4. **Verify.** Re-run the metric and all relevant bug checks. For reference mode, run the same inspection and critic path.
 5. **Decide.** Keep only a verified improvement that preserves all guardrails. Revert only the failed experiment's changes when safe; never revert unrelated user work.
