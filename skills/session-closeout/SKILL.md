@@ -21,7 +21,7 @@ Use one closeout workflow for session learning, durable knowledge and optional r
 Use the conversation and evidence already produced. Follow [session closeout](references/session-closeout.md) on every substantive closeout:
 
 1. Identify completed work, explicit corrections, accepted choices, repeated friction, unresolved work and the next action. Distinguish proposed, applied, verified and pending states.
-2. Decide which lessons are reusable workflow changes and which are project/company facts. Update only affected skills, project guidance and owning knowledge pages; skip any destination with no material delta.
+2. Decide whether each lesson belongs in an executable safeguard, workflow instructions, or project/company knowledge. Update only its owning check, skill, guidance, or knowledge page within closeout scope; skip destinations with no material delta.
 3. Preserve accepted preferences at their actual scope. Do not infer a permanent rule from an unaccepted suggestion or one ambiguous example.
 4. Apply relevant skill and project-guidance edits before the final checkpoint when they belong in that repository. Defer wiki claims that depend on source delivery until its actual outcome is verified; independent decisions or lessons can be written without a source merge.
 

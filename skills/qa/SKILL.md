@@ -1,6 +1,6 @@
 ---
 name: qa
-description: "Surface-level QA for web and mobile apps plus light code-quality QA routing: drive browser/device flows, reproduce issues, capture screenshots/logs/DOM/UI-tree evidence, classify bugs/design/product/code-quality issues, apply a minimal simplification lens to code smells, document repro steps, and verify fixes across relevant viewports/devices. Use when the user asks to test, QA, inspect, click/tap through, reproduce, verify a local or deployed app UI, or perform code QA connected to user-facing app behavior."
+description: "Test web and mobile user flows, reproduce bugs, capture evidence, and verify fixes. Use for app/UI QA and code-quality observations tied to user-facing behavior."
 ---
 
 # QA
@@ -59,6 +59,10 @@ Do not imply physical iOS QA is possible without macOS, Xcode provisioning, and 
 8. Route out-of-scope work to the right skill, then return to QA for verification. For SDK/provider flows, record the exact app/version/build and compare the same test session across device logs, PostHog, RevenueCat/MMP, and store/provider state.
 
 Prioritize blocked user flows, crashes, console-visible failures, broken navigation, failing forms, auth problems, layout overlap, unreadable text, and mobile regressions before cosmetic polish.
+
+## Repeatable verification
+
+Prefer existing project verification scripts and runbooks. When reusable QA is requested or setup is repeatedly rediscovered, use [reusable project verification](references/reusable-verification.md) to consolidate proven launch, health-check, user-flow, evidence, and cleanup instructions within the authorized edit scope.
 
 ## Code quality observations
 

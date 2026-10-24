@@ -25,6 +25,8 @@ Use this template when creating or repairing a hound benchmark file. Keep entrie
 - How to run it:
 - What evidence to save:
 - How to compare before and after:
+- Workload, artifact/version, and environment held comparable:
+- Evidence that the intended work completed, rather than being skipped:
 
 ## Metric
 
