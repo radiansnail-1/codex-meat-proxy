@@ -23,6 +23,7 @@ If the request wants fresh directions, concepts, a design system, or a premium-e
 - Match the product's domain. Operational tools should be dense, calm, and scannable; games and playful products can be more expressive.
 - Use real assets, screenshots, generated bitmap assets, or product imagery when visuals matter. Avoid placeholder-looking decoration.
 - Verify desktop and mobile behavior: no overlap, clipping, unexpected resizing, or unusable long text.
+- Confirm the target page’s actual viewport width and height after each responsive override; a requested size alone does not prove that tab resized. If the control affects another tab, use a supported tab-scoped override and clear temporary overrides when finished.
 - Prefer familiar controls: icons for tools, segmented controls for modes, toggles for binary settings, sliders/inputs for numeric settings, tabs for views, and menus for option sets.
 - Check hierarchy, density, spacing rhythm, alignment, contrast, icon weight, typography, empty/loading/error states, hover/focus states, keyboard paths, hit targets, reduced motion, and mobile behavior.
 - Use browser screenshots and real interaction when available; inspect console/network errors and broken assets.
