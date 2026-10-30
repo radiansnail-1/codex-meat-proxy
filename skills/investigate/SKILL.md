@@ -14,6 +14,8 @@ Trace the actual failing path before fixing it. A request to explain a problem c
 3. Trace callers, state owners, data flow, and recent relevant changes. Regressions can originate in source, dependencies, configuration, data, or external services; do not assume the cause must be in the local diff.
 4. For integrations, distinguish configuration, built artifact, initialization, current run, outbound request, provider receipt, and downstream state. Initialization logs, historical counters, and an HTTP success alone do not prove the requested end-to-end outcome.
 
+A missing tool in one runtime or plugin catalogue does not prove the account lacks access. Before starting another sign-in or installing a connector, check the existing authorized API/CLI worker and its effective feature settings; use one scoped read to establish the route. Distinguish direct access from delegation and identify any worker dependency.
+
 For persistent runtimes, compare installed source and effective configuration with the process actually serving requests; default constants may be overridden, and saved settings may load only at startup. Before closing a resource-heavy child, establish its owner and supervisor: a wrapper can immediately respawn it. Verify resource recovery and service readiness after the normal shutdown or configuration activation; a disappeared PID alone is not a completed fix.
 
 ## Test hypotheses
